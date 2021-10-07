@@ -9,7 +9,7 @@ using ContosoCrafts.WebSite.Services;
 namespace ContosoCrafts.WebSite.Pages
 {
     /// <summary>
-    /// Bakyadevi Ray 
+    /// Bakyadevi Ray
     /// </summary>
     ///
     ///<summary>
