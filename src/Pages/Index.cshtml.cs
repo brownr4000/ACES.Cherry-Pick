@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 /// <summary>
-/// I love Seattle Dogs
+/// I love Seattle Dogs and pizza
 /// </summary>
 namespace ContosoCrafts.WebSite.Pages
 {
