@@ -11,11 +11,13 @@ using ContosoCrafts.WebSite.Services;
 /// /// <summary>
 /// I love Seattle spring
 /// </summary>
+/// /// <summary>
+/// I love Seattle
+/// </summary>
 namespace ContosoCrafts.WebSite.Pages
 {
     /// <summary>
     /// Bakyadevi Ray
-    /// <jj>add</jj>
     /// </summary>
     ///
     ///<summary>
