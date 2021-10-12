@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 /// <summary>
-/// I love Seattle Dogs
+/// I love Seattle Florence trying
 /// </summary>
 namespace ContosoCrafts.WebSite.Pages
 {
@@ -20,6 +20,7 @@ namespace ContosoCrafts.WebSite.Pages
     ///
     /// <summary>
     /// Florence Xie
+    /// hiii
     /// </summary>
     public class IndexModel : PageModel
     {
