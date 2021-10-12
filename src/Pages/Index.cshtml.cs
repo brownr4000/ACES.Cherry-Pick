@@ -8,6 +8,9 @@ using ContosoCrafts.WebSite.Services;
 /// <summary>
 /// I love Seattle Dogs
 /// </summary>
+/// /// <summary>
+/// I love Seattle spring
+/// </summary>
 namespace ContosoCrafts.WebSite.Pages
 {
     /// <summary>
