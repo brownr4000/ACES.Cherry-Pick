@@ -47,7 +47,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Then return to the index page
         /// </summary>
         /// <returns></returns>
-        public IActionResult OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
