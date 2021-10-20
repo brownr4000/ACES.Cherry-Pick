@@ -134,31 +134,6 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// Create a new product using default values
-        /// After create the user can update to set values
-        /// </summary>
-        /// <returns></returns>
-        public ProductModel CreateProduct()
-        {
-            var data = new ProductModel()
-            {
-                Id = System.Guid.NewGuid().ToString(),
-                Title = "Enter Title",
-                Description = "Enter Description",
-                Url = "Enter URL",
-                Image = "",
-            };
-
-            // Get the current set, and append the new record to it
-            var dataSet = GetProducts();
-            dataSet = dataSet.Append(data);
-
-            SaveProducts(dataSet);
-
-            return data;
-        }
-
-        /// <summary>
         /// Remove the item from the system
         /// </summary>
         /// <returns></returns>
