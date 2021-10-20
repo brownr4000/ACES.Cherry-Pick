@@ -58,7 +58,7 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(true, result.PageName.Contains("Index"));
 
             // Confirm the item is deleted
-            Assert.AreEqual(null, TestHelper.ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
+            Assert.AreEqual(null, TestHelper.ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
         }
 
         [Test]

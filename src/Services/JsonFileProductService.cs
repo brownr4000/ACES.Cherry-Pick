@@ -23,7 +23,7 @@ namespace ContosoCrafts.WebSite.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
-        public IEnumerable<ProductModel> GetProducts()
+        public IEnumerable<ProductModel> GetAllData()
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
             {
@@ -37,9 +37,9 @@ namespace ContosoCrafts.WebSite.Services
 
         public void AddRating(string productId, int rating)
         {
-            var products = GetProducts();
+            var products = GetAllData();
 
-            if(products.First(x => x.Id == productId).Ratings == null)
+            if (products.First(x => x.Id == productId).Ratings == null)
             {
                 products.First(x => x.Id == productId).Ratings = new int[] { rating };
             }
@@ -80,7 +80,7 @@ namespace ContosoCrafts.WebSite.Services
             };
 
             // Get the current set, and append the new record to it
-            var dataSet = GetProducts();
+            var dataSet = GetAllData();
             dataSet = dataSet.Append(data);
 
             ///SaveProducts(dataSet);
@@ -97,7 +97,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="data"></param>
         public ProductModel UpdateData(ProductModel data)
         {
-            var products = GetProducts();
+            var products = GetAllData();
             var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
             if (productData == null)
             {
@@ -140,10 +140,10 @@ namespace ContosoCrafts.WebSite.Services
         public ProductModel DeleteData(string id)
         {
             // Get the current set, and append the new record to it
-            var dataSet = GetProducts();
+            var dataSet = GetAllData();
             var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
 
-            var newDataSet = GetProducts().Where(m => m.Id.Equals(id) == false);
+            var newDataSet = GetAllData().Where(m => m.Id.Equals(id) == false);
 
             SaveProducts(newDataSet);
 
