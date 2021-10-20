@@ -144,10 +144,10 @@
   {
     "Id": "89ab068e-6aae-4c59-9968-d2321110c720",
     "Maker": null,
-    "img": "",
+    "img": "https://media.istockphoto.com/vectors/different-kind-of-fastfood-vector-id509844628",
     "Url": "Enter URL",
-    "Title": "Enter Title",
-    "Description": "Enter Description",
+    "Title": "Test",
+    "Description": "This is a test description!",
     "Ratings": null
   }
 ]
