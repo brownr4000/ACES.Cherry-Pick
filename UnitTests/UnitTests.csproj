@@ -25,6 +25,5 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Product\Read.cshtml.Tests.cs" />
-    <Compile Remove="TestHelper.cs" />
   </ItemGroup>
 </Project>
