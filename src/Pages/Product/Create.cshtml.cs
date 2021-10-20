@@ -30,7 +30,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="id"></param>
         public IActionResult OnGet()
         {
-            Product = ProductService.CreateProduct();
+            Product = ProductService.CreateData();
 
             return RedirectToPage("./Update", new { Id = Product.Id });
         }
