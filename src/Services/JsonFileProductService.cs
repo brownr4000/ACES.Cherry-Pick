@@ -68,7 +68,7 @@ namespace ContosoCrafts.WebSite.Services
         /// After create the user can update to set values
         /// </summary>
         /// <returns></returns>
-        public ProductModel CreateProduct()
+        public ProductModel CreateData()
         {
             var data = new ProductModel()
             {
