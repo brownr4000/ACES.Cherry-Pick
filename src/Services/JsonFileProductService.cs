@@ -83,7 +83,7 @@ namespace ContosoCrafts.WebSite.Services
             var dataSet = GetAllData();
             dataSet = dataSet.Append(data);
 
-            ///SaveProducts(dataSet);
+            SaveData(dataSet);
 
             return data;
         }
@@ -109,7 +109,7 @@ namespace ContosoCrafts.WebSite.Services
             productData.Url = data.Url;
             productData.Image = data.Image;
 
-            SaveProducts(products);
+            SaveData(products);
 
             return productData;
         }
@@ -117,7 +117,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <summary>
         /// Save All products data to storage
         /// </summary>
-        private void SaveProducts(IEnumerable<ProductModel> products)
+        private void SaveData(IEnumerable<ProductModel> products)
         {
 
             using (var outputStream = File.Create(JsonFileName))
@@ -145,7 +145,7 @@ namespace ContosoCrafts.WebSite.Services
 
             var newDataSet = GetAllData().Where(m => m.Id.Equals(id) == false);
 
-            SaveProducts(newDataSet);
+            SaveData(newDataSet);
 
             return data;
         }
