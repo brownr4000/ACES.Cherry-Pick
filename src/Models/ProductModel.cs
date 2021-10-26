@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace ContosoCrafts.WebSite.Models
 {
     /// <summary>
-    /// 
+    /// The ProductModel class creates the variables to serialize to and deserialize from the products.json file
     /// </summary>
     public class ProductModel
     {
@@ -18,21 +18,20 @@ namespace ContosoCrafts.WebSite.Models
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
-        // String URL
+        // String Url to store Url property from products.json attribute 
         public string Url { get; set; }
 
-        // String Title
+        // String Title to store Title property from products.json attribute 
         public string Title { get; set; }
 
-        // String Description
+        // String Description to store Description property from products.json attribute 
         public string Description { get; set; }
 
-        // Int array Ratings
+        // Integer Array Ratings to store Ratings property from products.json attribute 
         public int[] Ratings { get; set; }
 
-        // Override ToString() method
+        // Override ToString() method for class
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
 
- 
     }
 }
