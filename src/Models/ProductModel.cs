@@ -8,13 +8,13 @@ namespace ContosoCrafts.WebSite.Models
     /// </summary>
     public class ProductModel
     {
-        // String ID
+        // String ID to store ID property from products.json attribute
         public string Id { get; set; }
-        
-        // String Maker
+
+        // String Maker to store Maker property from products.json attribute 
         public string Maker { get; set; }
-        
-        // Taking JSON property img and setting it to Image
+
+        // Customizing JSON property name "img", and using String Image to store the img property from products.json attribute 
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
