@@ -13,7 +13,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
     /// </summary>
     public class DeleteModel : PageModel
     {
-        // Data middletier
+        // Data middletier to access JSON file
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
@@ -23,6 +23,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="productService"></param>
         public DeleteModel(JsonFileProductService productService)
         {
+            // Setting ProductService to productService from JSON file
             ProductService = productService;
         }
 
@@ -56,6 +57,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
             ProductService.DeleteData(Product.Id);
 
+            // Redirect the webpage to the Index page
             return RedirectToPage("./Index");
         }
     }
