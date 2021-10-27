@@ -77,13 +77,14 @@ namespace UnitTests.Pages.Product.Index
         public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
+            var prodCount = TestHelper.ProductService.GetAllData().Count();
 
             // Act
             pageModel.OnGet();
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(17, pageModel.Products.ToList().Count);
+            Assert.AreEqual(prodCount, pageModel.Products.ToList().Count);
         }
         #endregion OnGet
     }
