@@ -6,9 +6,12 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
+    /// <summary>
+    /// The CreateModel class allows a user to create a new entry for the site
+    /// </summary>
     public class CreateModel : PageModel
     {
-        // Data middle tier
+        // Data middle tier to access JSON file
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
@@ -18,6 +21,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="productService"></param>
         public CreateModel(JsonFileProductService productService)
         {
+            // Setting ProductService to productService from JSON file
             ProductService = productService;
         }
 
