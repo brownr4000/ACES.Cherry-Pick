@@ -23,7 +23,4 @@
   <ItemGroup>
     <Folder Include="Pages\Product\" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Pages\Product\Read.cshtml.Tests.cs" />
-  </ItemGroup>
 </Project>
