@@ -9,24 +9,39 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
+    /// <summary>
+    /// 
+    /// </summary>
    public class JsonFileProductService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
 
+        //
         public IWebHostEnvironment WebHostEnvironment { get; }
 
+        //
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetAllData()
         {
+            //
             using(var jsonFileReader = File.OpenText(JsonFileName))
             {
+                //
                 return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
@@ -35,10 +50,17 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="rating"></param>
         public void AddRating(string productId, int rating)
         {
+            //
             var products = GetAllData();
 
+            //
             if (products.First(x => x.Id == productId).Ratings == null)
             {
                 products.First(x => x.Id == productId).Ratings = new int[] { rating };
@@ -50,6 +72,7 @@ namespace ContosoCrafts.WebSite.Services
                 products.First(x => x.Id == productId).Ratings = ratings.ToArray();
             }
 
+            //
             using(var outputStream = File.OpenWrite(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ProductModel>>(
@@ -97,13 +120,19 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="data"></param>
         public ProductModel UpdateData(ProductModel data)
         {
+            //
             var products = GetAllData();
+            
+            //
             var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
+            
+            //
             if (productData == null)
             {
                 return null;
             }
 
+            //
             productData.Title = data.Title;
             productData.Description = data.Description;
             productData.Url = data.Url;
@@ -149,7 +178,5 @@ namespace ContosoCrafts.WebSite.Services
 
             return data;
         }
-
-
     }
 }
