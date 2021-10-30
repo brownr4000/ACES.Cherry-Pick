@@ -24,7 +24,11 @@ namespace ContosoCrafts.WebSite.Pages
         // Creates a private logger interface for the IndexModel class
         private readonly ILogger<IndexModel> _logger;
 
-        // Creates a IndexModel object
+        /// <summary>
+        /// The IndexModel constructor creates a new object with the passed in logger and productService
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="productService"></param>
         public IndexModel(ILogger<IndexModel> logger,
             JsonFileProductService productService)
         {
@@ -38,7 +42,9 @@ namespace ContosoCrafts.WebSite.Pages
         // Creates an enermerable object based on the ProductModel
         public IEnumerable<ProductModel> Products { get; private set; }
 
-        // The OnGet method returns all the data from the ProductService
+        /// <summary>
+        /// The OnGet method returns all the data from the ProductService
+        /// </summary>
         public void OnGet()
         {
             Products = ProductService.GetAllData();
