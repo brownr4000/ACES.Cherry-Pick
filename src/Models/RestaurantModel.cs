@@ -30,12 +30,6 @@ namespace ContosoCrafts.WebSite.Models
         // Integer Array Ratings to store Ratings property from products.json attribute
         public int[] Ratings { get; set; }
 
-        // Integer Quantity to store quantity property
-        public int Quantity { get; set; }
-
-        // Double Price to store price number property
-        public double Price { get; set; }
-
         // Override ToString() method for class
         public override string ToString() => JsonSerializer.Serialize<RestaurantModel>(this);
 
