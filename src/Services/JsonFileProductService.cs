@@ -9,7 +9,10 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
-   public class JsonFileProductService
+    /// <summary>
+    /// 
+    /// </summary>
+    public class JsonFileProductService
     {
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
@@ -23,8 +26,13 @@ namespace ContosoCrafts.WebSite.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
+        /// <summary>
+        /// GetAllData method
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetAllData()
         {
+
             using(var jsonFileReader = File.OpenText(JsonFileName))
             {
                 return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
@@ -35,32 +43,57 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        public void AddRating(string productId, int rating)
+        /// <summary>
+        /// Add Rating method adds a rating to a product.
+        /// Take in the product ID and the rating. If the rating does not exist, add it
+        /// Save the update
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="rating"></param>
+        public bool AddRating(string productId, int rating)
         {
+            // If the ProductID is invalid, return
+            if (string.IsNullOrEmpty(productId))
+            {
+                return false;
+            }
+
             var products = GetAllData();
 
-            if (products.First(x => x.Id == productId).Ratings == null)
+            // Look up the product, if it does not exist, return
+            var data = products.FirstOrDefault(x => x.Id.Equals(productId));
+            if (data == null)
             {
-                products.First(x => x.Id == productId).Ratings = new int[] { rating };
-            }
-            else
-            {
-                var ratings = products.First(x => x.Id == productId).Ratings.ToList();
-                ratings.Add(rating);
-                products.First(x => x.Id == productId).Ratings = ratings.ToArray();
+                return false;
             }
 
-            using(var outputStream = File.OpenWrite(JsonFileName))
+            // Check Rating for boundries, do not allow ratings below 0
+            if (rating < 0)
             {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }), 
-                    products
-                );
+                return false;
             }
+
+            // Check Rating for boundries, do not allow ratings above 5
+            if (rating > 5)
+            {
+                return false;
+            }
+
+            // Check to see if the rating exist, if there are none, then create the array
+            if (data.Ratings == null)
+            {
+                data.Ratings = new int[] { };
+            }
+
+            // Add the Rating to the Array
+            var ratings = data.Ratings.ToList();
+            ratings.Add(rating);
+            data.Ratings = ratings.ToArray();
+
+            // Save the data back to the data store
+            SaveData(products);
+
+            return true;
         }
 
         /// <summary>
@@ -104,6 +137,7 @@ namespace ContosoCrafts.WebSite.Services
                 return null;
             }
 
+            // Update the data to the new passed in values
             productData.Title = data.Title;
             productData.Description = data.Description;
             productData.Url = data.Url;
