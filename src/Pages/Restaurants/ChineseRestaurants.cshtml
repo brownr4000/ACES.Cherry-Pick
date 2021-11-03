@@ -1,4 +1,27 @@
-﻿@page
-@model ContosoCrafts.WebSite.Pages.Restaurants.IndexModel
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
+@using ContosoCrafts.WebSite.Components
+@model ContosoCrafts.WebSite.Pages.Product.ReadModel
+
 @{
+    ViewData["Title"] = "Restaurant";
 }
+
+<h1>@Model.Product.Title</h1>
+
+<div class="container">
+    <h5 class="title" id="productTitle">@Model.Product.Title</h5>
+
+    <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
+
+    <p class="card-text">@Model.Product.Description</p>
+
+</div>
+
+<br />
+<br />
+
+@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
+
+<script src="_framework/blazor.server.js"></script>

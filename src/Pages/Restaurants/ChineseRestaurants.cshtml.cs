@@ -1,16 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ContosoCrafts.WebSite.Pages.Restaurants
+using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services;
+
+namespace ContosoCrafts.WebSite.Pages.Product
 {
-    public class IndexModel : PageModel
+    /// <summary>
+    /// The ReadModel class allows a user to read a entry for the site
+    /// </summary>
+    public class ChineseRestaurantModel : PageModel
     {
-        public void OnGet()
+        // Data middletier
+        public JsonFileProductService ProductService { get; }
+
+        /// <summary>
+        /// Defualt Construtor
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="productService"></param>
+        public ChineseRestaurantModel(JsonFileProductService productService)
         {
+            // Setting ProductService to productService from JSON file
+            ProductService = productService;
+        }
+
+        // The data to show
+        public ProductModel Product;
+
+        /// <summary>
+        /// REST Get request
+        /// </summary>
+        /// <param name="id"></param>
+        public void OnGet(string id)
+        {
+            // Redirect the webpage to the read page populated with the data so the user can read the page
+            Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
         }
     }
 }
