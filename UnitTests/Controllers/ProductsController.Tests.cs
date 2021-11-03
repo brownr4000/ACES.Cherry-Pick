@@ -30,17 +30,12 @@ namespace UnitTests.Controllers
         public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
-
-             //var AllData = pController.Get("");
-            //var oldCount = TestHelper.ProductService.GetAllData().Count();
-
+             
             // Act 
-            //pController.OnGet(" ");
+             
 
             // Assert
-            //Assert.AreEqual(true, actual: allData.Length > 0);
-            //Assert.AreEqual(true, pController.ModelState.IsValid);
-            //Assert.AreEqual(true, actual: pController.ProductService.ToList().Any());
+             
         }
         #endregion OnGet
     }
