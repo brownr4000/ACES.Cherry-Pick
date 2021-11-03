@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,7 +10,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
     /// <summary>
     /// The ReadModel class allows a user to read a entry for the site
     /// </summary>
-    public class ReadModel : PageModel
+    public class ChineseRestaurantModel : PageModel
     {
         // Data middletier
         public JsonFileProductService ProductService { get; }
@@ -20,7 +20,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="productService"></param>
-        public ReadModel(JsonFileProductService productService)
+        public ChineseRestaurantModel(JsonFileProductService productService)
         {
             // Setting ProductService to productService from JSON file
             ProductService = productService;
