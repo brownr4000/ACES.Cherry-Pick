@@ -115,7 +115,7 @@ namespace ContosoCrafts.WebSite.Services
                 Image = "",
             };
 
-            // Get the current set, and append the new record to it
+            // Get the current set, and append the new record to it becuase IEnumerable does not have Add
             var dataSet = GetAllData();
             dataSet = dataSet.Append(data);
 
@@ -134,19 +134,18 @@ namespace ContosoCrafts.WebSite.Services
         public ProductModel UpdateData(ProductModel data)
         {
 
-            //
             var products = GetAllData();
 
             // Look up the product, if it does not exist, return
             var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
 
-            // If the ProductID is invalid, return
+            // If the productData is invalid, return
             if (productData == null)
             {
                 return null;
             }
 
-            //
+            // Update the data to the new passed in values
             productData.Title = data.Title;
             productData.Description = data.Description;
             productData.Url = data.Url;
@@ -162,7 +161,7 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         private void SaveData(IEnumerable<ProductModel> products)
         {
-
+            // Saving data to the JSON file
             using (var outputStream = File.Create(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ProductModel>>(
