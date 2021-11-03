@@ -8,10 +8,17 @@ using System;
 
 namespace ContosoCrafts.WebSite.Controllers
 {
+    /// <summary>
+    /// The ProductsController class provides a class for a controller of the products being displayed by the site
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class ProductsController : ControllerBase
     {
+        /// <summary>
+        /// The ProductsController constructor creates an object with the passed in productService
+        /// </summary>
+        /// <param name="productService"></param>
         public ProductsController(JsonFileProductService productService)
         {
             ProductService = productService;
