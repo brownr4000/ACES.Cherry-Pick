@@ -30,5 +30,17 @@ namespace UnitTests.Pages.Product.Create
             Assert.AreEqual(oldCount + 1, TestHelper.ProductService.GetAllData().Count());
         }
         #endregion OnGet
+
+        #region OnGetRestaurants
+        [Test]
+        public void OnGet_Valid_Should_Return_Restaurants()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+        }
+        #endregion OnGetRestaurants
     }
 }
