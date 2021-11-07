@@ -3,7 +3,7 @@
 using ContosoCrafts.WebSite.Models;
 using Castle.Core.Internal;
 
-namespace UnitTests
+namespace UnitTests.Models
 {
     class ProducttModelTests
     {
