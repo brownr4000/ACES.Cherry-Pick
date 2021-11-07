@@ -5,24 +5,22 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
 using System.Linq;
+using Castle.Core.Internal;
 
 namespace UnitTests
 {
     class RestaurantModelTests
     {
         #region TestSetup
-        public static CreateModel pageModel;
         public string TEST_WORDS = "Test";
         public string CHECK_WORDS = "Check";
 
         [SetUp]
         public void TestInitialize()
         {
-            //pageModel = new CreateModel(TestHelper.ProductService)
-            //{
 
-            //};
         }
+
         #endregion TestSetup
 
         #region IdSetGet
@@ -32,7 +30,7 @@ namespace UnitTests
             // Arrange
             RestaurantModel dinertModel = new RestaurantModel()
             {
-                Id = TEST_WORDS,
+                Id = TEST_WORDS
             };
 
             // Act
@@ -51,7 +49,7 @@ namespace UnitTests
             // Arrange
             RestaurantModel dinertModel = new RestaurantModel()
             {
-                Title = TEST_WORDS,
+                Title = TEST_WORDS
             };
 
             // Act
@@ -70,12 +68,7 @@ namespace UnitTests
             // Arrange
             RestaurantModel dinertModel = new RestaurantModel()
             {
-                Description = TEST_WORDS,
-                Url = TEST_WORDS,
-                Image = TEST_WORDS,
-                Maker = TEST_WORDS,
-                Quantity = 1,
-                Price = 101.99
+                Description = TEST_WORDS
             };
 
             // Act
@@ -94,11 +87,7 @@ namespace UnitTests
             // Arrange
             RestaurantModel dinertModel = new RestaurantModel()
             {
-                Url = TEST_WORDS,
-                Image = TEST_WORDS,
-                Maker = TEST_WORDS,
-                Quantity = 1,
-                Price = 101.99
+                Url = TEST_WORDS
             };
 
             // Act
@@ -117,11 +106,7 @@ namespace UnitTests
             // Arrange
             RestaurantModel dinertModel = new RestaurantModel()
             {
-                Url = TEST_WORDS,
-                Image = TEST_WORDS,
-                Maker = TEST_WORDS,
-                Quantity = 1,
-                Price = 101.99
+                Image = TEST_WORDS
             };
 
             // Act
@@ -132,5 +117,87 @@ namespace UnitTests
             Assert.AreEqual(false, result == TEST_WORDS);
         }
         #endregion ImageSetGet
+
+        #region MakerSetGet
+        [Test]
+        public void RestaurantModel_Valid_Maker_Set_And_Get_Should_Return_True()
+        {
+            // Arrange
+            RestaurantModel dinertModel = new RestaurantModel()
+            {
+                Maker = TEST_WORDS
+            };
+
+            // Act
+            dinertModel.Maker = CHECK_WORDS;
+            var result = dinertModel.Maker;
+
+            // Assert
+            Assert.AreEqual(false, result == TEST_WORDS);
+        }
+        #endregion MakerSetGet
+
+        #region QtySetGet
+        [Test]
+        public void RestaurantModel_Valid_Quantity_Set_And_Get_Should_Return_True()
+        {
+            // Arrange
+            RestaurantModel dinertModel = new RestaurantModel()
+            {
+                Quantity = 1
+            };
+
+            // Act
+            dinertModel.Quantity = 3;
+            var result = dinertModel.Quantity;
+
+            // Assert
+            Assert.AreEqual(false, result == 1);
+        }
+        #endregion QtySetGet
+
+        #region PriceSetGet
+        [Test]
+        public void RestaurantModel_Valid_Price_Set_And_Get_Should_Return_True()
+        {
+            // Arrange
+            RestaurantModel dinertModel = new RestaurantModel()
+            {
+                Price = 101.99
+            };
+
+            // Act
+            dinertModel.Price= 250.99;
+            var result = dinertModel.Price;
+
+            // Assert
+            Assert.AreEqual(false, result == 101.99);
+        }
+        #endregion PriceSetGet
+
+        #region ToStringTest
+        [Test]
+        public void RestaurantModel_Valid_ToString_Should_Return_True()
+        {
+            // Arrange
+            RestaurantModel dinertModel = new RestaurantModel()
+            {
+                Id = TEST_WORDS,
+                Title = TEST_WORDS,
+                Description = TEST_WORDS,
+                Url = TEST_WORDS,
+                Image = TEST_WORDS,
+                Maker = TEST_WORDS,
+                Quantity = 1,
+                Price = 101.99
+            };
+
+            // Act
+            var result = dinertModel.ToString();
+
+            // Assert
+            Assert.AreEqual(false, result.IsNullOrEmpty());
+        }
+        #endregion ToStringTest
     }
 }
