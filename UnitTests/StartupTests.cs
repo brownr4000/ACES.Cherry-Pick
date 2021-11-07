@@ -1,12 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Hosting;
 
-namespace UnitTests
+using NUnit.Framework;
+
+namespace UnitTests.Pages.Startup
 {
-    class StartupTests
+    public class StartupTests
     {
+        #region TestSetup
+
+        [SetUp]
+        public void TestInitialize()
+        {
+
+        }
+
+        public class Startup : ContosoCrafts.WebSite.Startup
+        {
+            public Startup(IConfiguration config) : base(config) { }
+        }
+        #endregion TestSetup
+
+        #region ConfigureServices
+        [Test]
+        public void Startup_ConfigureServices_Valid_Defaut_Should_Pass()
+        {
+            var webHost = Microsoft.AspNetCore.WebHost.CreateDefaultBuilder().UseStartup<Startup>().Build();
+            Assert.IsNotNull(webHost);
+        }
+        #endregion ConfigureServices
+
+        #region Configure
+        [Test]
+        public void Startup_Configure_Valid_Defaut_Should_Pass()
+        {
+            var webHost = Microsoft.AspNetCore.WebHost.CreateDefaultBuilder().UseStartup<Startup>().Build();
+            Assert.IsNotNull(webHost);
+        }
+
+        #endregion Configure
     }
 }
