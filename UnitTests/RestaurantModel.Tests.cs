@@ -13,6 +13,7 @@ namespace UnitTests
         #region TestSetup
         public static CreateModel pageModel;
         public string TEST_WORDS = "Test";
+        public string CHECK_WORDS = "Check";
 
         [SetUp]
         public void TestInitialize()
@@ -21,76 +22,33 @@ namespace UnitTests
             {
 
             };
+        }
+        #endregion TestSetup
 
+        #region IdSetGet
+        [Test]
+        public void RestaurantModel_Valid_Id_Set_And_Get_Should_Return_True()
+        {
+            // Arrange
             RestaurantModel dinertModel = new RestaurantModel()
             {
                 Id = TEST_WORDS,
                 Title = TEST_WORDS,
                 Description = TEST_WORDS,
                 Url = TEST_WORDS,
-                Image = TEST_WORDS
-            };
-        }
-        #endregion TestSetup
-
-        #region OnPostAsync
-        [Test]
-        public void OnPostAsync_InValid_Model_NotValid_Return_Page()
-        {
-            // Arrange
-            pageModel.Product = new ProductModel
-            {
-                Id = "bogus",
-                Title = "bogus",
-                Description = "bogus",
-                Url = "bogus",
-                Image = "bougs"
+                Image = TEST_WORDS,
+                Maker = TEST_WORDS,
+                Quantity = 1,
+                Price = 101.99
             };
 
-            // Force an invalid error state
-            pageModel.ModelState.AddModelError("bogus", "bogus error");
-
             // Act
-            var result = pageModel.OnPost() as ActionResult;
+            dinertModel.Id = CHECK_WORDS;
+            var result = dinertModel.Id;
 
             // Assert
-            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+            Assert.AreEqual(false, result != TEST_WORDS);
         }
-        #endregion OnPostAsync
-
-        #region AddRating
-        [Test]
-        public void AddRating_InValid_()
-        {
-            // Arrange
-
-            // Act
-            //var result = TestHelper.ProductService.AddRating(null, 1);
-
-            // Assert
-            //Assert.AreEqual(false, result);
-        }
-
-        // ....
-
-        [Test]
-        public void AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True()
-        {
-            // Arrange
-
-            // Get the First data item
-            var data = TestHelper.ProductService.GetAllData().First();
-            var countOriginal = data.Ratings.Length;
-
-            // Act
-            var result = TestHelper.ProductService.AddRating(data.Id, 5);
-            var dataNewList = TestHelper.ProductService.GetAllData().First();
-
-            // Assert
-            Assert.AreEqual(true, result);
-            Assert.AreEqual(countOriginal + 1, dataNewList.Ratings.Length);
-            Assert.AreEqual(5, dataNewList.Ratings.Last());
-        }
-        #endregion AddRating
+        #endregion IdSetGet
     }
 }
