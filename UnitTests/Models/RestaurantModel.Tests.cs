@@ -10,6 +10,7 @@ namespace UnitTests.Models
         #region TestSetup
         public string TEST_WORDS = "Test";
         public string CHECK_WORDS = "Check";
+        public int[] STARS = { 5, 5, 5 };
 
         [SetUp]
         public void TestInitialize()
@@ -170,6 +171,26 @@ namespace UnitTests.Models
             Assert.AreEqual(false, result == 101.99);
         }
         #endregion PriceSetGet
+
+        #region RatingSetGet
+        [Test]
+        public void RestaurantModel_Valid_Rating_Set_And_Get_Should_Return_True()
+        {
+            // Arrange
+            RestaurantModel dinerModel = new RestaurantModel()
+            {
+                Ratings = STARS
+            };
+
+            // Act
+            int[] badScores = { 1, 1, 1 };
+            dinerModel.Ratings = badScores;
+            var result = dinerModel.Ratings;
+
+            // Assert
+            Assert.AreEqual(false, result == STARS);
+        }
+        #endregion RatingSetGet
 
         #region ToStringTest
         [Test]
