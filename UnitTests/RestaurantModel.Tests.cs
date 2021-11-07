@@ -12,7 +12,7 @@ namespace UnitTests
     {
         #region TestSetup
         public static CreateModel pageModel;
-        public RestaurantModel Diner;
+        public string TEST_WORDS = "Test";
 
         [SetUp]
         public void TestInitialize()
@@ -20,13 +20,20 @@ namespace UnitTests
             pageModel = new CreateModel(TestHelper.ProductService)
             {
 
-
             };
-            
-            Diner.Id = "Test";
+
+            RestaurantModel dinertModel = new RestaurantModel()
+            {
+                Id = TEST_WORDS,
+                Title = TEST_WORDS,
+                Description = TEST_WORDS,
+                Url = TEST_WORDS,
+                Image = TEST_WORDS
+            };
         }
         #endregion TestSetup
 
+        #region OnPostAsync
         [Test]
         public void OnPostAsync_InValid_Model_NotValid_Return_Page()
         {
@@ -49,10 +56,10 @@ namespace UnitTests
             // Assert
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
         }
-#endregion OnPostAsync
-    }
+        #endregion OnPostAsync
 
-    [Test]
+        #region AddRating
+        [Test]
         public void AddRating_InValid_()
         {
             // Arrange
