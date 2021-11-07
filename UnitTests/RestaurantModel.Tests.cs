@@ -47,7 +47,7 @@ namespace UnitTests
             var result = dinertModel.Id;
 
             // Assert
-            Assert.AreEqual(false, result != TEST_WORDS);
+            Assert.AreEqual(false, result == TEST_WORDS);
         }
         #endregion IdSetGet
     }
