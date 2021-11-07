@@ -3,7 +3,7 @@
 using ContosoCrafts.WebSite.Models;
 using Castle.Core.Internal;
 
-namespace UnitTests
+namespace UnitTests.Models
 {
     class RestaurantModelTests
     {
@@ -24,14 +24,14 @@ namespace UnitTests
         public void RestaurantModel_Valid_Id_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Id = TEST_WORDS
             };
 
             // Act
-            dinertModel.Id = CHECK_WORDS;
-            var result = dinertModel.Id;
+            dinerModel.Id = CHECK_WORDS;
+            var result = dinerModel.Id;
 
             // Assert
             Assert.AreEqual(false, result == TEST_WORDS);
@@ -43,14 +43,14 @@ namespace UnitTests
         public void RestaurantModel_Valid_Title_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Title = TEST_WORDS
             };
 
             // Act
-            dinertModel.Title = CHECK_WORDS;
-            var result = dinertModel.Title;
+            dinerModel.Title = CHECK_WORDS;
+            var result = dinerModel.Title;
 
             // Assert
             Assert.AreEqual(false, result == TEST_WORDS);
@@ -62,14 +62,14 @@ namespace UnitTests
         public void RestaurantModel_Valid_Description_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Description = TEST_WORDS
             };
 
             // Act
-            dinertModel.Description = CHECK_WORDS;
-            var result = dinertModel.Description;
+            dinerModel.Description = CHECK_WORDS;
+            var result = dinerModel.Description;
 
             // Assert
             Assert.AreEqual(false, result == TEST_WORDS);
@@ -81,14 +81,14 @@ namespace UnitTests
         public void RestaurantModel_Valid_Url_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Url = TEST_WORDS
             };
 
             // Act
-            dinertModel.Url = CHECK_WORDS;
-            var result = dinertModel.Url;
+            dinerModel.Url = CHECK_WORDS;
+            var result = dinerModel.Url;
 
             // Assert
             Assert.AreEqual(false, result == TEST_WORDS);
@@ -100,14 +100,14 @@ namespace UnitTests
         public void RestaurantModel_Valid_Image_String_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Image = TEST_WORDS
             };
 
             // Act
-            dinertModel.Image = CHECK_WORDS;
-            var result = dinertModel.Image;
+            dinerModel.Image = CHECK_WORDS;
+            var result = dinerModel.Image;
 
             // Assert
             Assert.AreEqual(false, result == TEST_WORDS);
@@ -119,14 +119,14 @@ namespace UnitTests
         public void RestaurantModel_Valid_Maker_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Maker = TEST_WORDS
             };
 
             // Act
-            dinertModel.Maker = CHECK_WORDS;
-            var result = dinertModel.Maker;
+            dinerModel.Maker = CHECK_WORDS;
+            var result = dinerModel.Maker;
 
             // Assert
             Assert.AreEqual(false, result == TEST_WORDS);
@@ -138,14 +138,14 @@ namespace UnitTests
         public void RestaurantModel_Valid_Quantity_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Quantity = 1
             };
 
             // Act
-            dinertModel.Quantity = 3;
-            var result = dinertModel.Quantity;
+            dinerModel.Quantity = 3;
+            var result = dinerModel.Quantity;
 
             // Assert
             Assert.AreEqual(false, result == 1);
@@ -157,14 +157,14 @@ namespace UnitTests
         public void RestaurantModel_Valid_Price_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Price = 101.99
             };
 
             // Act
-            dinertModel.Price= 250.99;
-            var result = dinertModel.Price;
+            dinerModel.Price= 250.99;
+            var result = dinerModel.Price;
 
             // Assert
             Assert.AreEqual(false, result == 101.99);
@@ -176,7 +176,7 @@ namespace UnitTests
         public void RestaurantModel_Valid_ToString_Should_Return_True()
         {
             // Arrange
-            RestaurantModel dinertModel = new RestaurantModel()
+            RestaurantModel dinerModel = new RestaurantModel()
             {
                 Id = TEST_WORDS,
                 Title = TEST_WORDS,
@@ -189,7 +189,7 @@ namespace UnitTests
             };
 
             // Act
-            var result = dinertModel.ToString();
+            var result = dinerModel.ToString();
 
             // Assert
             Assert.AreEqual(false, result.IsNullOrEmpty());
