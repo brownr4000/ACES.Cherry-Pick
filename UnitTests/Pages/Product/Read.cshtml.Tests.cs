@@ -2,6 +2,7 @@
 using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UnitTests.Pages.Product.Read
 {
@@ -32,6 +33,18 @@ namespace UnitTests.Pages.Product.Read
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Chinese Cuisine", pageModel.Product.Title);
+        }
+
+        [Test]
+        public void OnGet_InValid_Id_Bougs_Should_Return_Products()
+        {
+            // Arrange
+
+            // Act
+            var result = pageModel.OnGet("Bogus") as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual("./Index", result.PageName);
         }
         #endregion OnGet
     }
