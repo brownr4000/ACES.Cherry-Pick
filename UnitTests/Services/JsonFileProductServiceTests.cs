@@ -65,6 +65,20 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(countOriginal + 1, dataNewList.Ratings.Length);
             Assert.AreEqual(5, dataNewList.Ratings.Last());
         }
+
+        // Look up the product, if it does not exist, it should return false
+        [Test]
+        public void AddRating_InValid_ProductID_Should_Return_False()
+        {
+            // Arrange
+
+            // Act
+            var result = TestHelper.ProductService.AddRating("invalid_productid", 1);
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
         #endregion AddRating
 
     }
