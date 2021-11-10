@@ -42,7 +42,8 @@ namespace UnitTests.Pages.Product.Create
             // Assert
         }
         #endregion OnGetRestaurants
-
+        
+        [Test]
         public void OnPost_Valid_Should_Save_Created_Data_To_Json()
         {
             // Arrange
