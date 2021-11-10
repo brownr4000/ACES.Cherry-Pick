@@ -79,6 +79,23 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result);
         }
 
+       
+        // Check Rating for boundries, it should not allow ratings below 0
+
+        [Test]
+        public void AddRating_InValid_Rating_Negative_Should_Return_False()
+        {
+            // Arrange
+
+            var data = TestHelper.ProductService.GetAllData().First();
+
+            // Act
+
+            var result = TestHelper.ProductService.AddRating(data.Id, -1);
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
         #endregion AddRating
 
     }
