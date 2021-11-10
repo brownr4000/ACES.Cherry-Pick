@@ -118,18 +118,37 @@ namespace UnitTests.Pages.Product.AddRating
         public void AddRating_No_Existing_Ratings_Should_Return_True()
         {
             // Arrange
-            // Get the Second data item
-            var data = TestHelper.ProductService.GetAllData().Skip(1).First();
+            var newProduct = TestHelper.ProductService.CreateData();
 
             // Act
-
-            var result = TestHelper.ProductService.AddRating(data.Id, 5);
-            var dataNewList = TestHelper.ProductService.GetAllData().Skip(1).First();
-
+            var result = TestHelper.ProductService.AddRating(newProduct.Id, 2);
+            var dataNewList = TestHelper.ProductService.GetAllData().ToList();
+            int newRatingLength = 0;
+            foreach (var p in dataNewList) {
+                if (p.Id == newProduct.Id) {
+                    newRatingLength = p.Ratings.Length;
+                    break;
+                }
+            }
             // Assert
             Assert.AreEqual(true, result);
-            Assert.AreEqual(1, dataNewList.Ratings.Length);
-            Assert.AreEqual(5, dataNewList.Ratings.First());
+            Assert.AreEqual(1, newRatingLength);
+        }
+
+
+            // update
+        [Test]
+
+        public void AddRating_UpdateData_Return_Null()
+        {
+                // Act
+                var invalidProduct = new ProductModel();
+                invalidProduct.Id = "invalid product";
+                var resultNew = TestHelper.ProductService.UpdateData(invalidProduct);
+
+                // Assert
+                Assert.IsNull(resultNew);
+
         }
         #endregion AddRating
     }
