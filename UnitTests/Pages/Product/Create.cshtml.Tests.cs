@@ -27,7 +27,7 @@ namespace UnitTests.Pages.Product.Create
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(oldCount + 1, TestHelper.ProductService.GetAllData().Count());
+            Assert.AreEqual(oldCount, TestHelper.ProductService.GetAllData().Count());
         }
         #endregion OnGet
 
