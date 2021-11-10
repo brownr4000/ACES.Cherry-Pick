@@ -130,6 +130,7 @@ namespace UnitTests.Pages.Product.AddRating
                     break;
                 }
             }
+
             // Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(1, newRatingLength);
@@ -141,13 +142,15 @@ namespace UnitTests.Pages.Product.AddRating
 
         public void UpdateData_Invalid_Product_Should_Return_Null()
         {
-                // Act
-                var invalidProduct = new ProductModel();
-                invalidProduct.Id = "invalid product";
-                var resultNew = TestHelper.ProductService.UpdateData(invalidProduct);
+            // Arrange
 
-                // Assert
-                Assert.IsNull(resultNew);
+            // Act
+            var invalidProduct = new ProductModel();
+            invalidProduct.Id = "invalid product";
+            var resultNew = TestHelper.ProductService.UpdateData(invalidProduct);
+
+            // Assert
+            Assert.IsNull(resultNew);
 
         }
         #endregion AddRating
