@@ -96,6 +96,23 @@ namespace UnitTests.Pages.Product.AddRating
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        // Check Rating for boundries, it should not allow ratings above 5
+        [Test]
+        public void AddRating_InValid_Rating_Above_5_Should_Return_False()
+        {
+            // Arrange
+
+            var data = TestHelper.ProductService.GetAllData().First();
+
+            // Act
+
+            var result = TestHelper.ProductService.AddRating(data.Id, 6);
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
         #endregion AddRating
 
     }
