@@ -20,9 +20,11 @@
   <ItemGroup>
 	  <None Remove="Pages\Product\" />
 	  <None Remove="Services\" />
+	  <None Remove="Pages\Restaurants\" />
   </ItemGroup>
   <ItemGroup>
 	  <Folder Include="Pages\Product\" />
 	  <Folder Include="Services\" />
+	  <Folder Include="Pages\Restaurants\" />
   </ItemGroup>
 </Project>
