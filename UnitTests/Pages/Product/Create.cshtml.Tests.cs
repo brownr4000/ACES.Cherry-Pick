@@ -27,7 +27,7 @@ namespace UnitTests.Pages.Product.Create
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(oldCount + 1, TestHelper.ProductService.GetAllData().Count());
+            Assert.AreEqual(oldCount, TestHelper.ProductService.GetAllData().Count());
         }
         #endregion OnGet
 
@@ -42,7 +42,8 @@ namespace UnitTests.Pages.Product.Create
             // Assert
         }
         #endregion OnGetRestaurants
-
+        
+        [Test]
         public void OnPost_Valid_Should_Save_Created_Data_To_Json()
         {
             // Arrange

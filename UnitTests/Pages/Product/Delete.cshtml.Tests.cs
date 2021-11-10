@@ -44,9 +44,17 @@ namespace UnitTests.Pages.Product.Delete
         public void OnPostAsync_Valid_Should_Return_Products()
         {
             // Arrange
+            var data = new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Enter Title",
+                Description = "Enter Description",
+                Url = "Enter URL",
+                Image = "",
+            };
 
             // First Create the product to delete
-            pageModel.Product = TestHelper.ProductService.CreateData();
+            pageModel.Product = TestHelper.ProductService.CreateData(data);
             pageModel.Product.Title = "Example to Delete";
             TestHelper.ProductService.UpdateData(pageModel.Product);
 
