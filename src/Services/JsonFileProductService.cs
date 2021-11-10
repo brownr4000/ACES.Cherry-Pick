@@ -101,17 +101,8 @@ namespace ContosoCrafts.WebSite.Services
         /// After create the user can update to set values
         /// </summary>
         /// <returns></returns>
-        public ProductModel CreateData()
+        public ProductModel CreateData(ProductModel data)
         {
-            var data = new ProductModel()
-            {
-                Id = System.Guid.NewGuid().ToString(),
-                Title = "Enter Title",
-                Description = "Enter Description",
-                Url = "Enter URL",
-                Image = "",
-            };
-
             // Get the current set, and append the new record to it
             var dataSet = GetAllData();
             dataSet = dataSet.Append(data);

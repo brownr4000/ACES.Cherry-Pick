@@ -28,16 +28,42 @@ namespace ContosoCrafts.WebSite.Pages.Product
         // The data to show
         public ProductModel Product;
 
+        public ProductModel CreateData()
+        {
+            return new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Enter Title",
+                Description = "Enter Description",
+                Url = "Enter URL",
+                Image = "",
+            };
+        }
+
         /// <summary>
         /// REST Get request
         /// </summary>
         /// <param name="id"></param>
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            Product = ProductService.CreateData();
+            Product = CreateData();
 
             // Redirect the webpage to the Update page populated with the data so the user can fill in the fields
-            return RedirectToPage("./Update", new { Id = Product.Id });
+            // return RedirectToPage("./Update", new { Id = Product.Id });
+        }
+
+        public IActionResult OnPost()
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            ProductService.CreateData(Product);
+
+            return RedirectToPage("./Index");
+
         }
     }
 }
