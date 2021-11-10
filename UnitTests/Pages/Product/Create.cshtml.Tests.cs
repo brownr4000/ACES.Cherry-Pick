@@ -42,5 +42,19 @@ namespace UnitTests.Pages.Product.Create
             // Assert
         }
         #endregion OnGetRestaurants
+
+        public void OnPost_Valid_Should_Save_Created_Data_To_Json()
+        {
+            // Arrange
+            pageModel.OnGet();
+            var data = pageModel.Product;
+
+            // Act
+            pageModel.OnPost();
+            var result = TestHelper.ProductService.GetAllData().First(x => x.Id == data.Id);
+
+            // Assert
+            Assert.AreEqual(data.Id, result.Id);
+        }
     }
 }
