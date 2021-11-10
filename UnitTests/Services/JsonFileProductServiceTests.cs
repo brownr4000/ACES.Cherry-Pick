@@ -113,7 +113,24 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result);
         }
 
-        #endregion AddRating
+        // Check to see if the rating exist, if there are none, then create the array
+        [Test]
+        public void AddRating_No_Existing_Ratings_Should_Return_True()
+        {
+            // Arrange
+            // Get the Second data item
+            var data = TestHelper.ProductService.GetAllData().Skip(1).First();
 
+            // Act
+
+            var result = TestHelper.ProductService.AddRating(data.Id, 5);
+            var dataNewList = TestHelper.ProductService.GetAllData().Skip(1).First();
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(1, dataNewList.Ratings.Length);
+            Assert.AreEqual(5, dataNewList.Ratings.First());
+        }
+        #endregion AddRating
     }
 }
