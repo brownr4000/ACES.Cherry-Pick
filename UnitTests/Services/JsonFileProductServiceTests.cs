@@ -134,12 +134,12 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(true, result);
             Assert.AreEqual(1, newRatingLength);
         }
-
-
-            // update
+        
+ 
+        // Passing Invalid product to UpdateData should return Null
         [Test]
 
-        public void AddRating_UpdateData_Return_Null()
+        public void UpdateData_Invalid_Product_Should_Return_Null()
         {
                 // Act
                 var invalidProduct = new ProductModel();
