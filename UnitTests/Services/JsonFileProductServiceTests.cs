@@ -118,7 +118,16 @@ namespace UnitTests.Pages.Product.AddRating
         public void AddRating_No_Existing_Ratings_Should_Return_True()
         {
             // Arrange
-            var newProduct = TestHelper.ProductService.CreateData();
+            var data = new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Enter Title",
+                Description = "Enter Description",
+                Url = "Enter URL",
+                Image = "",
+            };
+
+            var newProduct = TestHelper.ProductService.CreateData(data);
 
             // Act
             var result = TestHelper.ProductService.AddRating(newProduct.Id, 2);
