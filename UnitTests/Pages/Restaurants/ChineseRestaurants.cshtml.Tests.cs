@@ -1,15 +1,20 @@
 ﻿using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Pages.Product;
-using Microsoft.AspNetCore.Mvc;
 
 namespace UnitTests.Pages.Product.Read
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ChineseRestaurantsTests
     {
+        //
         #region TestSetup
         public static ChineseRestaurantModel pageModel;
 
+        /// <summary>
+        /// 
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -17,9 +22,11 @@ namespace UnitTests.Pages.Product.Read
             {
             };
         }
-
         #endregion TestSetup
 
+        /// <summary>
+        /// 
+        /// </summary>
         #region OnGet
         [Test]
         public void OnGet_Valid_Should_Return_Products()
