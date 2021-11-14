@@ -1,18 +1,22 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-
+﻿using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
 
 namespace UnitTests.Pages.Product.Update
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UpdateTests
     {
+        //
         #region TestSetup
         public static UpdateModel pageModel;
 
+        /// <summary>
+        /// 
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -20,9 +24,11 @@ namespace UnitTests.Pages.Product.Update
             {
             };
         }
-
         #endregion TestSetup
 
+        /// <summary>
+        /// 
+        /// </summary>
         #region OnGet
         [Test]
         public void OnGet_Valid_Should_Return_Products()
@@ -38,6 +44,9 @@ namespace UnitTests.Pages.Product.Update
         }
         #endregion OnGet
 
+        /// <summary>
+        /// 
+        /// </summary>
         #region OnPostAsync
         [Test]
         public void OnPostAsync_Valid_Should_Return_Products()
@@ -60,6 +69,9 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void OnPostAsync_InValid_Model_NotValid_Return_Page()
         {
