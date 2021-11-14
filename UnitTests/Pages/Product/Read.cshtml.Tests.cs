@@ -1,16 +1,21 @@
-﻿
-using NUnit.Framework;
-
+﻿using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UnitTests.Pages.Product.Read
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReadTests
     {
+        //
         #region TestSetup
         public static ReadModel pageModel;
 
+        /// <summary>
+        /// 
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -21,6 +26,9 @@ namespace UnitTests.Pages.Product.Read
 
         #endregion TestSetup
 
+        /// <summary>
+        /// 
+        /// </summary>
         #region OnGet
         [Test]
         public void OnGet_Valid_Should_Return_Products()
@@ -35,6 +43,9 @@ namespace UnitTests.Pages.Product.Read
             Assert.AreEqual("Chinese Cuisine", pageModel.Product.Title);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void OnGet_InValid_Id_Bougs_Should_Return_Products()
         {
