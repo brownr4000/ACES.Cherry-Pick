@@ -1,10 +1,6 @@
-﻿
-using Microsoft.Extensions.Logging;
-
+﻿using Microsoft.Extensions.Logging;
 using NUnit.Framework;
-
 using Moq;
-
 using ContosoCrafts.WebSite.Pages;
 
 
@@ -13,8 +9,7 @@ namespace UnitTests.Pages.About
     public class AboutTests
     {
         #region TestSetup
-
-
+        //
         public static AboutModel pageModel;
 
         [SetUp]
@@ -28,7 +23,6 @@ namespace UnitTests.Pages.About
                 TempData = TestHelper.TempData,
             };
         }
-
         #endregion TestSetup
 
         #region OnGet
@@ -45,7 +39,6 @@ namespace UnitTests.Pages.About
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
         }
-
         #endregion OnGet
     }
 }
