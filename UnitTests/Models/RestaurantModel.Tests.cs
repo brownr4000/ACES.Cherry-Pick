@@ -1,30 +1,39 @@
 ﻿using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Models;
 using Castle.Core.Internal;
 
 namespace UnitTests.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class RestaurantModelTests
     {
         #region TestSetup
+        //
         public string TEST_WORDS = "Test";
         public string CHECK_WORDS = "Check";
         public int[] STARS = { 5, 5, 5 };
 
+        /// <summary>
+        /// 
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
 
         }
-
         #endregion TestSetup
 
         #region IdSetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Id_Set_And_Get_Should_Return_True()
         {
             // Arrange
+            //
             RestaurantModel dinerModel = new RestaurantModel()
             {
                 Id = TEST_WORDS
@@ -40,6 +49,9 @@ namespace UnitTests.Models
         #endregion IdSetGet
 
         #region TitleSetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Title_Set_And_Get_Should_Return_True()
         {
@@ -59,10 +71,14 @@ namespace UnitTests.Models
         #endregion TitleSetGet
 
         #region DescriptionSetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Description_Set_And_Get_Should_Return_True()
         {
             // Arrange
+            //
             RestaurantModel dinerModel = new RestaurantModel()
             {
                 Description = TEST_WORDS
@@ -78,6 +94,9 @@ namespace UnitTests.Models
         #endregion DescriptionSetGet
 
         #region UrlSetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Url_Set_And_Get_Should_Return_True()
         {
@@ -97,10 +116,14 @@ namespace UnitTests.Models
         #endregion UrlSetGet
 
         #region ImageSetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Image_String_Set_And_Get_Should_Return_True()
         {
             // Arrange
+            //
             RestaurantModel dinerModel = new RestaurantModel()
             {
                 Image = TEST_WORDS
@@ -116,10 +139,14 @@ namespace UnitTests.Models
         #endregion ImageSetGet
 
         #region MakerSetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Maker_Set_And_Get_Should_Return_True()
         {
             // Arrange
+            //
             RestaurantModel dinerModel = new RestaurantModel()
             {
                 Maker = TEST_WORDS
@@ -135,6 +162,9 @@ namespace UnitTests.Models
         #endregion MakerSetGet
 
         #region QtySetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Quantity_Set_And_Get_Should_Return_True()
         {
@@ -154,6 +184,9 @@ namespace UnitTests.Models
         #endregion QtySetGet
 
         #region PriceSetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Price_Set_And_Get_Should_Return_True()
         {
@@ -173,6 +206,9 @@ namespace UnitTests.Models
         #endregion PriceSetGet
 
         #region RatingSetGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_Rating_Set_And_Get_Should_Return_True()
         {
@@ -193,10 +229,14 @@ namespace UnitTests.Models
         #endregion RatingSetGet
 
         #region ToStringTest
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void RestaurantModel_Valid_ToString_Should_Return_True()
         {
             // Arrange
+            //
             RestaurantModel dinerModel = new RestaurantModel()
             {
                 Id = TEST_WORDS,
