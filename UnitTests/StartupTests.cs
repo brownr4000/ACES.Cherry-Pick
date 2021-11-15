@@ -5,16 +5,24 @@ using NUnit.Framework;
 
 namespace UnitTests.Pages.Startup
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class StartupTests
     {
         #region TestSetup
-
+        /// <summary>
+        /// 
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public class Startup : ContosoCrafts.WebSite.Startup
         {
             public Startup(IConfiguration config) : base(config) { }
@@ -22,6 +30,9 @@ namespace UnitTests.Pages.Startup
         #endregion TestSetup
 
         #region ConfigureServices
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void Startup_ConfigureServices_Valid_Defaut_Should_Pass()
         {
@@ -31,6 +42,9 @@ namespace UnitTests.Pages.Startup
         #endregion ConfigureServices
 
         #region Configure
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void Startup_Configure_Valid_Defaut_Should_Pass()
         {
