@@ -5,12 +5,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace UnitTests.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class ProductsControllerTests
     {
-
+        //
         #region TestSetup
         public static ProductsController pController;
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -18,10 +24,12 @@ namespace UnitTests.Controllers
             {
             };
         }
-
         #endregion TestSetup
-
+        
         #region OnGet
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
@@ -38,6 +46,9 @@ namespace UnitTests.Controllers
         #endregion OnGet
 
         #region Patch
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void Patch_Valid_Should_Add_Ratings()
         {
