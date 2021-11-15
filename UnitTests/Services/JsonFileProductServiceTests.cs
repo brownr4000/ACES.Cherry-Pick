@@ -1,26 +1,29 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-
-using NUnit.Framework;
-
-using ContosoCrafts.WebSite.Pages.Product;
+﻿using NUnit.Framework;
 using ContosoCrafts.WebSite.Models;
 using System.Linq;
 
 namespace UnitTests.Pages.Product.AddRating
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class JsonFileProductServiceTests
     {
         #region TestSetup
-
+        /// <summary>
+        /// 
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
-        }
 
+        }
         #endregion TestSetup
 
         #region AddRating
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void AddRating_InValid_Product_Null_Should_Return_False()
         {
@@ -33,6 +36,9 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void AddRating_InValid_()
         {
@@ -45,8 +51,9 @@ namespace UnitTests.Pages.Product.AddRating
             //Assert.AreEqual(false, result);
         }
 
-        // ....
-
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True()
         {
@@ -67,6 +74,9 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         // Look up the product, if it does not exist, it should return false
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void AddRating_InValid_ProductID_Should_Return_False()
         {
@@ -81,7 +91,9 @@ namespace UnitTests.Pages.Product.AddRating
 
        
         // Check Rating for boundries, it should not allow ratings below 0
-
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void AddRating_InValid_Rating_Negative_Should_Return_False()
         {
@@ -98,6 +110,9 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         // Check Rating for boundries, it should not allow ratings above 5
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void AddRating_InValid_Rating_Above_5_Should_Return_False()
         {
@@ -114,6 +129,9 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         // Check to see if the rating exist, if there are none, then create the array
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void AddRating_No_Existing_Ratings_Should_Return_True()
         {
@@ -147,8 +165,10 @@ namespace UnitTests.Pages.Product.AddRating
         
  
         // Passing Invalid product to UpdateData should return Null
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
-
         public void UpdateData_Invalid_Product_Should_Return_Null()
         {
             // Arrange
