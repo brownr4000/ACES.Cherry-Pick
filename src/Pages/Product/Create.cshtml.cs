@@ -26,7 +26,8 @@ namespace ContosoCrafts.WebSite.Pages.Product
         }
 
         // The data to show
-        public ProductModel Product;
+        [BindProperty]
+        public ProductModel Product { get; set; }
 
         public ProductModel CreateData()
         {
