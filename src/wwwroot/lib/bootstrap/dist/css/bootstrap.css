@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
+  --cherry: #e94949;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -2665,8 +2666,8 @@ fieldset:disabled a.btn {
 
 .btn-dark:hover {
   color: #fff;
-  background-color: #23272b;
-  border-color: #1d2124;
+  background-color: #f08080;
+  border-color: #f08080;
 }
 
 .btn-dark:focus, .btn-dark.focus {
