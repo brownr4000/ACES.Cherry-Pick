@@ -1,19 +1,23 @@
 ﻿using System.Linq;
-
 using Microsoft.AspNetCore.Mvc;
-
 using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
 
 namespace UnitTests.Pages.Product.Delete
 {
+    /// <summary>
+    /// The DeleteTests class defines unit tests to cover the DeleteModel class
+    /// </summary>
     public class DeleteTests
     {
         #region TestSetup
+        // Initialize DeleteModel object
         public static DeleteModel pageModel;
 
+        /// <summary>
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -21,10 +25,12 @@ namespace UnitTests.Pages.Product.Delete
             {
             };
         }
-
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// The OnGet_Valid_Should_Return_Products tests the OnGet method for the DeleteModel object
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
@@ -40,6 +46,9 @@ namespace UnitTests.Pages.Product.Delete
         #endregion OnGet
 
         #region OnPostAsync
+        /// <summary>
+        /// The OnPostAsync_Valid_Should_Return_Products checks the functionality of UpdateData method to remove an item from the datastore
+        /// </summary>
         [Test]
         public void OnPostAsync_Valid_Should_Return_Products()
         {
@@ -69,6 +78,9 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(null, TestHelper.ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
         }
 
+        /// <summary>
+        /// The OnPostAsync_InValid_Model_NotValid_Return_Page tests the OnPost method with bogus data to ensure the correct error is given
+        /// </summary>
         [Test]
         public void OnPostAsync_InValid_Model_NotValid_Return_Page()
         {
