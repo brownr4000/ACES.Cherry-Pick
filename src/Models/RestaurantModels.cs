@@ -1,5 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace ContosoCrafts.WebSite.Models
 {
@@ -18,13 +20,16 @@ namespace ContosoCrafts.WebSite.Models
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
-        // String Url to store Url property from products.json attribute 
+        // String Url to store Url property from products.json attribute
+        [Url(ErrorMessage = "Not a valid URL")]
         public string Url { get; set; }
 
-        // String Title to store Title property from products.json attribute 
+        // String Title to store Title property from products.json attribute
+        [StringLength(maximumLength: 32, MinimumLength = 1, ErrorMessage = "The Title should have a length of more than {2} and less than {1}")]
         public string Title { get; set; }
 
-        // String Description to store Description property from products.json attribute 
+        // String Description to store Description property from products.json attribute
+        [StringLength(maximumLength: 64, MinimumLength = 1, ErrorMessage = "The Description should have a length of more than {2} and less than {1}")]
         public string Description { get; set; }
 
         // Integer Array Ratings to store Ratings property from products.json attribute
@@ -34,6 +39,7 @@ namespace ContosoCrafts.WebSite.Models
         public int Quantity { get; set; }
 
         // Double Price to store price number property
+        [Range(-1, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public double Price { get; set; }
 
         // Override ToString() method for class
