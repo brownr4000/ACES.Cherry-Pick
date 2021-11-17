@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
@@ -25,10 +24,14 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
 
-        // The data to show
+        // The data to show the ProductModel
         [BindProperty]
         public ProductModel Product { get; set; }
 
+        /// <summary>
+        /// The CreateData methoid allows for the creation of a new item in the JSON filestore
+        /// </summary>
+        /// <returns></returns>
         public ProductModel CreateData()
         {
             return new ProductModel()
@@ -53,6 +56,10 @@ namespace ContosoCrafts.WebSite.Pages.Product
             // return RedirectToPage("./Update", new { Id = Product.Id });
         }
 
+        /// <summary>
+        /// The OnPost method determines if the new data is valid. It creates a new entry if it is, and returns to the index page.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnPost()
         {
 
