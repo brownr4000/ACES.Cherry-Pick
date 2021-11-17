@@ -5,18 +5,18 @@ using Castle.Core.Internal;
 namespace UnitTests.Models
 {
     /// <summary>
-    /// 
+    /// The RestauranttModelTests class defines unit tests to cover the RestaurantModel class
     /// </summary>
     class RestaurantModelTests
     {
         #region TestSetup
-        //
+        // Constant stings to hold values for determining unit test
         public string TEST_WORDS = "Test";
         public string CHECK_WORDS = "Check";
         public int[] STARS = { 5, 5, 5 };
 
         /// <summary>
-        /// 
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
         /// </summary>
         [SetUp]
         public void TestInitialize()
@@ -27,13 +27,12 @@ namespace UnitTests.Models
 
         #region IdSetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Id_Set_And_Get_Should_Return_True checks the functionality of the Id field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Id_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            //
             RestaurantModel dinerModel = new RestaurantModel()
             {
                 Id = TEST_WORDS
@@ -50,7 +49,7 @@ namespace UnitTests.Models
 
         #region TitleSetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Title_Set_And_Get_Should_Return_True checks the functionality of the Title field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Title_Set_And_Get_Should_Return_True()
@@ -72,7 +71,7 @@ namespace UnitTests.Models
 
         #region DescriptionSetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Description_Set_And_Get_Should_Return_True checks the functionality of the Description field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Description_Set_And_Get_Should_Return_True()
@@ -95,7 +94,7 @@ namespace UnitTests.Models
 
         #region UrlSetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Url_Set_And_Get_Should_Return_True checks the functionality of the Url field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Url_Set_And_Get_Should_Return_True()
@@ -117,13 +116,12 @@ namespace UnitTests.Models
 
         #region ImageSetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Image_Set_And_Get_Should_Return_True checks the functionality of the Image field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Image_String_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            //
             RestaurantModel dinerModel = new RestaurantModel()
             {
                 Image = TEST_WORDS
