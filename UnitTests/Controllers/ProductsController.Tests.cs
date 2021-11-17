@@ -25,10 +25,10 @@ namespace UnitTests.Controllers
             };
         }
         #endregion TestSetup
-        
+
         #region OnGet
         /// <summary>
-        /// 
+        /// The OnGet_Valid_Should_Return_Products method tests the functionality of the OnGet method in the ProductsConroller class
         /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
@@ -47,7 +47,7 @@ namespace UnitTests.Controllers
 
         #region Patch
         /// <summary>
-        /// 
+        /// The Patch_Valid_Should_Add_Ratings method tests the functionality of the Patch method in the ProductsController class
         /// </summary>
         [Test]
         public void Patch_Valid_Should_Add_Ratings()
