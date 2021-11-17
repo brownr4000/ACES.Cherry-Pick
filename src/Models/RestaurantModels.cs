@@ -39,7 +39,7 @@ namespace ContosoCrafts.WebSite.Models
         public int Quantity { get; set; }
 
         // Double Price to store price number property
-        [Range(-1, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        [Range(0, 100000, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public double Price { get; set; }
 
         // Override ToString() method for class
