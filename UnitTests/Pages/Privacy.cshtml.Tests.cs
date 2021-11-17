@@ -1,10 +1,6 @@
-
 using Microsoft.Extensions.Logging;
-
 using NUnit.Framework;
-
 using Moq;
-
 using ContosoCrafts.WebSite.Pages;
 
 
@@ -14,9 +10,13 @@ namespace UnitTests.Pages.Privacy
     {
         #region TestSetup
        
-
+        // Initialize PrivacyModel object
         public static PrivacyModel pageModel;
 
+
+        /// <summary>
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -28,10 +28,12 @@ namespace UnitTests.Pages.Privacy
                 TempData = TestHelper.TempData,
             };
         }
-
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// The OnGet_Valid_Should_Return_Products tests the OnGet method for Products
+        /// </summary>
         [Test]
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
