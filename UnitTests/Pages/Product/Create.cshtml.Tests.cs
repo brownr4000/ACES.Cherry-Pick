@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
+using Microsoft.AspNetCore.Mvc;
+
 namespace UnitTests.Pages.Product.Create
 {
     public class CreateTests
@@ -15,6 +17,7 @@ namespace UnitTests.Pages.Product.Create
             };
         }
         #endregion TestSetup
+
         #region OnGet
         [Test]
         public void OnGet_Valid_Should_Return_Products()
@@ -42,7 +45,8 @@ namespace UnitTests.Pages.Product.Create
             // Assert
         }
         #endregion OnGetRestaurants
-        
+
+        #region OnPost
         [Test]
         public void OnPost_Valid_Should_Save_Created_Data_To_Json()
         {
@@ -57,5 +61,21 @@ namespace UnitTests.Pages.Product.Create
             // Assert
             Assert.AreEqual(data.Id, result.Id);
         }
+
+        [Test]
+        public void OnPost_InValid_Model_NotValid_Return_Page()
+        {
+            // Arrange
+
+            // Force an invalid error state
+            pageModel.ModelState.AddModelError("bogus", "bogus error");
+
+            // Act
+            var result = pageModel.OnPost() as ActionResult;
+
+            // Assert
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+        }
+        #endregion OnPost
     }
 }
