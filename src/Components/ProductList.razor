@@ -7,26 +7,28 @@
 <input @bind="searchCriteria" style="width:100%; margin-top:20px; padding:5px; height:40px;" placeholder="Search">
 <br>
 <div>
-    <button @onclick="(e => Search())" style="margin-top:10px;" class="btn btn-primary" data-toggle="cardRefresh" data-target="#cardRefresh">
+    <button @onclick="(e => Search())" style="margin-top: 10px; margin-bottom: 10px;" class="btn btn-primary" data-toggle="cardRefresh" data-target="#cardRefresh">
         Search
     </button>
-    <button @onclick="(e => Clear())" style="margin-top:10px; margin-left:5px;" class="btn btn-primary" data-toggle="cardRefresh" data-target="#cardRefresh">
+    <button @onclick="(e => Clear())" style="margin-top:10px; margin-left:5px; margin-bottom:10px;" class="btn btn-primary" data-toggle="cardRefresh" data-target="#cardRefresh">
         Clear
     </button>
 </div>
 
-<div class="card-columns">
-    @foreach (var product in ProductService.GetAllData())
-    {
-        <div class="card">
-            <div class="card-img" style="background-image: url('@product.Image');">
+<div>
+    <div class="card-columns">
+        @foreach (var product in ProductService.GetAllData())
+        {
+            <div class="card">
+                <div class="card-img" style="background-image: url('@product.Image');">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@product.Title</h5>
+                    <a class="card-link btn btn-dark" href="./Restaurants/ChineseRestaurants/@product.Id">@product.Title</a>
+                </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">@product.Title</h5>
-                <a class="card-link btn btn-dark" href="./Restaurants/ChineseRestaurants/@product.Id">@product.Title</a>
-            </div>
-        </div>
-    }
+        }
+    </div>
 </div>
 
 @if (selectedProduct != null)
