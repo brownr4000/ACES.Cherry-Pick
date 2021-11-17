@@ -3,17 +3,17 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileProductService ProductService
 
+
+<input @bind="searchCriteria" style="width:100%; margin-top:20px; padding:5px; height:40px;" placeholder="Search">
+<br>
 <div>
-    <div class="row">
-        <div class="col">
-            <input type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
-            <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
-            <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
-        </div>
-    </div>
-
+    <button @onclick="(e => Search())" style="margin-top:10px;" class="btn btn-primary" data-toggle="cardRefresh" data-target="#cardRefresh">
+        Search
+    </button>
+    <button @onclick="(e => Clear())" style="margin-top:10px; margin-left:5px;" class="btn btn-primary" data-toggle="cardRefresh" data-target="#cardRefresh">
+        Clear
+    </button>
 </div>
-
 
 <div class="card-columns">
     @foreach (var product in ProductService.GetAllData())
@@ -118,25 +118,6 @@
         SelectProduct(selectedProductId);
     }
 
-    string FilterDataString = "";
-    bool FilterData = false;
-
-    void UpdateFilterText(string text)
-    {
-        FilterDataString = text;
-    }
-
-    void EnableFilterData()
-    {
-        // If the Filter is enabled, set the filter flag
-        FilterData = true;
-    }
-
-    void ClearFilterData()
-    {
-        // If the Filter is enabled, set the filter flag
-        FilterData = false;
-    }
 
     // Contents of the search bar
     string searchCriteria = "";
