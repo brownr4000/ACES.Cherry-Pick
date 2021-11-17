@@ -6,12 +6,18 @@ using ContosoCrafts.WebSite.Pages;
 
 namespace UnitTests.Pages.About
 {
+    /// <summary>
+    /// The AboutTests class defines unit tests to cover the AboutModel class
+    /// </summary>
     public class AboutTests
     {
         #region TestSetup
-        //
+        // Initialize AboutModel object
         public static AboutModel pageModel;
 
+        /// <summary>
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -26,6 +32,9 @@ namespace UnitTests.Pages.About
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// The OnGet_Valid_Activity_Set_Should_Return_RequestId method tests the functionality of the AboutModel OnGet method
+        /// </summary>
         [Test]
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {

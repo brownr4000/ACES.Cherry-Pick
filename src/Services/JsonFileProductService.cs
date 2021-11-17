@@ -138,6 +138,9 @@ namespace ContosoCrafts.WebSite.Services
             productData.Url = data.Url;
             productData.Image = data.Image;
 
+            // Add saving the CommentList to the UpdateData
+            productData.CommentList = data.CommentList;
+
             SaveData(products);
 
             return productData;

@@ -5,10 +5,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace UnitTests.Pages.Product.Create
 {
+    /// <summary>
+    /// The CreateTests class defines unit tests to cover the CreateModel class
+    /// </summary>
     public class CreateTests
     {
         #region TestSetup
+        // Initialize CreateModel object
         public static CreateModel pageModel;
+
+        /// <summary>
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -19,6 +27,9 @@ namespace UnitTests.Pages.Product.Create
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// The OnGet_Valid_Should_Return_Products tests the OnGet method for Products
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
@@ -35,6 +46,9 @@ namespace UnitTests.Pages.Product.Create
         #endregion OnGet
 
         #region OnGetRestaurants
+        /// <summary>
+        /// The OnGet_Valid_Should_Return_Restaurants tests the OnGet method for Restaurants
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Restaurants()
         {
@@ -47,6 +61,9 @@ namespace UnitTests.Pages.Product.Create
         #endregion OnGetRestaurants
 
         #region OnPost
+        /// <summary>
+        /// The OnPost_Valid_Should_Save_Created_Data_To_Json tests the OnPost method for updating Id in a product stored in the CreateModel object
+        /// </summary>
         [Test]
         public void OnPost_Valid_Should_Save_Created_Data_To_Json()
         {
@@ -62,6 +79,9 @@ namespace UnitTests.Pages.Product.Create
             Assert.AreEqual(data.Id, result.Id);
         }
 
+        /// <summary>
+        /// The OnPost_InValid_Model_NotValid_Return_Page tests the OnPost method with bogus data to ensure the correct error is given
+        /// </summary>
         [Test]
         public void OnPost_InValid_Model_NotValid_Return_Page()
         {

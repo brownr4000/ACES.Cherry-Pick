@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -9,19 +8,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
-
 using Moq;
-
 using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Product.Index
 {
+    /// <summary>
+    /// The IndexTests defines unit tests to cover the Index class
+    /// </summary>
     public class IndexTests
     {
         #region TestSetup
+        // Objects to support unit tests
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -32,8 +32,12 @@ namespace UnitTests.Pages.Product.Index
         public static TempDataDictionary tempData;
         public static PageContext pageContext;
 
+        // Creating IndexModel object
         public static IndexModel pageModel;
 
+        /// <summary>
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -73,6 +77,9 @@ namespace UnitTests.Pages.Product.Index
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// The OnGet_Valid_Should_Return_Products tests the OnGet method for Products
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {

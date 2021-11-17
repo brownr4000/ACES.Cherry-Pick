@@ -8,7 +8,7 @@ using System.Linq;
 namespace UnitTests.Components
 {
     /// <summary>
-    /// 
+    /// The ProductListsTest class defines Unit Tests for ProductList.razor
     /// </summary>
     public class ProductListTests : BunitTestContext
     {

@@ -6,16 +6,17 @@ using ContosoCrafts.WebSite.Models;
 namespace UnitTests.Pages.Product.Update
 {
     /// <summary>
-    /// 
+    /// The UpdateTests class defines unit tests to cover the UpdateModel class
     /// </summary>
     public class UpdateTests
     {
         //
         #region TestSetup
+        // Initialize UpdateModel object
         public static UpdateModel pageModel;
 
         /// <summary>
-        /// 
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
         /// </summary>
         [SetUp]
         public void TestInitialize()
@@ -27,7 +28,7 @@ namespace UnitTests.Pages.Product.Update
         #endregion TestSetup
 
         /// <summary>
-        /// 
+        /// The OnGet_Valid_Should_Return_Products tests the OnGet method for Products
         /// </summary>
         #region OnGet
         [Test]
@@ -45,7 +46,7 @@ namespace UnitTests.Pages.Product.Update
         #endregion OnGet
 
         /// <summary>
-        /// 
+        /// The OnPostAsync_Valid_Should_Return_Products checks the functionality of UpdateData method to add an item from the datastore
         /// </summary>
         #region OnPostAsync
         [Test]
@@ -70,7 +71,7 @@ namespace UnitTests.Pages.Product.Update
         }
 
         /// <summary>
-        /// 
+        /// The OnPostAsync_InValid_Model_NotValid_Return_Page tests the OnPost method with bogus data to ensure the correct error is given
         /// </summary>
         [Test]
         public void OnPostAsync_InValid_Model_NotValid_Return_Page()
