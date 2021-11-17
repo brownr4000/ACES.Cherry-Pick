@@ -138,13 +138,12 @@ namespace UnitTests.Models
 
         #region MakerSetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Maker_Set_And_Get_Should_Return_True checks the functionality of the Maker field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Maker_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            //
             RestaurantModel dinerModel = new RestaurantModel()
             {
                 Maker = TEST_WORDS
@@ -161,7 +160,7 @@ namespace UnitTests.Models
 
         #region QtySetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Quantity_Set_And_Get_Should_Return_True checks the functionality of the Quantity field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Quantity_Set_And_Get_Should_Return_True()
@@ -183,7 +182,7 @@ namespace UnitTests.Models
 
         #region PriceSetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Price_Set_And_Get_Should_Return_True checks the functionality of the Price field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Price_Set_And_Get_Should_Return_True()
@@ -205,7 +204,7 @@ namespace UnitTests.Models
 
         #region RatingSetGet
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_Rating_Set_And_Get_Should_Return_True checks the functionality of the Rating field
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_Rating_Set_And_Get_Should_Return_True()
@@ -228,7 +227,7 @@ namespace UnitTests.Models
 
         #region ToStringTest
         /// <summary>
-        /// 
+        /// The RestaurantModel_Valid_ToString_Should_Return_True tests the functionality of the overridden ToString method
         /// </summary>
         [Test]
         public void RestaurantModel_Valid_ToString_Should_Return_True()
