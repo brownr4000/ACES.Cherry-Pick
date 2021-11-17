@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace UnitTests.Controllers
 {
     /// <summary>
-    /// 
+    /// The ProductsControllerTests class defines unit tests to cover the ProductsConroller class
     /// </summary>
     class ProductsControllerTests
     {
-        //
+        // Creating ProductsContoller object
         #region TestSetup
         public static ProductsController pController;
         
         /// <summary>
-        /// 
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
         /// </summary>
         [SetUp]
         public void TestInitialize()
