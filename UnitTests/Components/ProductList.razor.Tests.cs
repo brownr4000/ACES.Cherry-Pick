@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace UnitTests.Components
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ProductListTests : BunitTestContext
     {
         #region TestSetup
@@ -17,7 +20,9 @@ namespace UnitTests.Components
         }
 
         #endregion TestSetup
-
+        /// <summary>
+        /// Product List should return content
+        /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
         {
@@ -27,7 +32,7 @@ namespace UnitTests.Components
             // Act
             var page = RenderComponent<ProductList>();
 
-            // Get the Cards retrned
+            // Get the Cards returned
             var result = page.Markup;
 
             // Assert
@@ -36,4 +41,3 @@ namespace UnitTests.Components
         }
     }
 }
-    
