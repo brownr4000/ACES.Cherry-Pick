@@ -5,13 +5,12 @@ using System.Linq;
 namespace UnitTests.Pages.Product.AddRating
 {
     /// <summary>
-    /// 
-    /// </summary>
+    /// The JsonFileProductServiceTests defines unit tests to cover the JsonFileProductService class
     public class JsonFileProductServiceTests
     {
         #region TestSetup
         /// <summary>
-        /// 
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
         /// </summary>
         [SetUp]
         public void TestInitialize()
@@ -22,7 +21,7 @@ namespace UnitTests.Pages.Product.AddRating
 
         #region AddRating
         /// <summary>
-        /// 
+        /// The AddRating_InValid_Product_Null_Should_Return_False unit test
         /// </summary>
         [Test]
         public void AddRating_InValid_Product_Null_Should_Return_False()
@@ -37,7 +36,7 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         /// <summary>
-        /// 
+        /// The AddRating_IsValid_ unit test
         /// </summary>
         [Test]
         public void AddRating_InValid_()
@@ -52,7 +51,7 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         /// <summary>
-        /// 
+        /// The AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True unit test
         /// </summary>
         [Test]
         public void AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True()
@@ -73,9 +72,8 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(5, dataNewList.Ratings.Last());
         }
 
-        // Look up the product, if it does not exist, it should return false
         /// <summary>
-        /// 
+        /// The AddRating_InValid_ProductID_Should_Return_False Looks up the product, if it does not exist, it should return false
         /// </summary>
         [Test]
         public void AddRating_InValid_ProductID_Should_Return_False()
@@ -89,10 +87,8 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result);
         }
 
-       
-        // Check Rating for boundries, it should not allow ratings below 0
         /// <summary>
-        /// 
+        /// The AddRating_InValid_Rating_Negative_Should_Return_False unit tests Check Rating for boundries, it should not allow ratings below 0
         /// </summary>
         [Test]
         public void AddRating_InValid_Rating_Negative_Should_Return_False()
@@ -109,9 +105,8 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result);
         }
 
-        // Check Rating for boundries, it should not allow ratings above 5
         /// <summary>
-        /// 
+        /// Check Rating for boundries, it should not allow ratings above 5
         /// </summary>
         [Test]
         public void AddRating_InValid_Rating_Above_5_Should_Return_False()
@@ -128,9 +123,8 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result);
         }
 
-        // Check to see if the rating exist, if there are none, then create the array
         /// <summary>
-        /// 
+        /// Check to see if the rating exist, if there are none, then create the array
         /// </summary>
         [Test]
         public void AddRating_No_Existing_Ratings_Should_Return_True()
@@ -162,11 +156,10 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(true, result);
             Assert.AreEqual(1, newRatingLength);
         }
-        
- 
-        // Passing Invalid product to UpdateData should return Null
+
+
         /// <summary>
-        /// 
+        /// Passing Invalid product to UpdateData should return Null
         /// </summary>
         [Test]
         public void UpdateData_Invalid_Product_Should_Return_Null()
