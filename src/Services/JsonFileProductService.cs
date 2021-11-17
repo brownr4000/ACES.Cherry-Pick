@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Hosting;
 namespace ContosoCrafts.WebSite.Services
 {
     /// <summary>
-    /// 
+    /// The JsonFileProductService class defines the interface between the web pages and the Json datastore file
     /// </summary>
     public class JsonFileProductService
     {
         /// <summary>
-        /// 
+        /// The class Constructor sets the WebHostEnvironment based on the passed in value 
         /// </summary>
         /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
@@ -21,10 +21,10 @@ namespace ContosoCrafts.WebSite.Services
             WebHostEnvironment = webHostEnvironment;
         }
 
-        //
+        // WebHostEnvironment variable to get information about the web hosting environment
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        //
+        // The JsonFileName string defines the filename and location for the products.json file
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
