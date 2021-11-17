@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-
 using ContosoCrafts.WebSite.Models;
-
 using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
@@ -14,13 +12,19 @@ namespace ContosoCrafts.WebSite.Services
     /// </summary>
     public class JsonFileProductService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
 
+        //
         public IWebHostEnvironment WebHostEnvironment { get; }
 
+        //
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
@@ -174,7 +178,5 @@ namespace ContosoCrafts.WebSite.Services
 
             return data;
         }
-
-
     }
 }
