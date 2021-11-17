@@ -32,6 +32,9 @@ namespace ContosoCrafts.WebSite.Models
         [StringLength(maximumLength: 64, MinimumLength = 1, ErrorMessage = "The Description should have a length of more than {2} and less than {1}")]
         public string Description { get; set; }
 
+        // Store the Comments entered by the users on this product
+        public List<CommentModel> CommentList { get; set; } = new List<CommentModel>();
+
         // Integer Array Ratings to store Ratings property from products.json attribute 
         public int[] Ratings { get; set; }
 
