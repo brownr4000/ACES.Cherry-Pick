@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 namespace ContosoCrafts.WebSite
 {
     /// <summary>
-    /// Startup class
+    /// Startup class defines the methods upon Startup for the site
     /// </summary>
     public class Startup
     {
@@ -21,9 +21,13 @@ namespace ContosoCrafts.WebSite
             Configuration = configuration;
         }
 
+        // Configuration variable
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// The ConfigureServices method gets called by the runtime. It is used to add services to the container.
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -33,7 +37,11 @@ namespace ContosoCrafts.WebSite
             services.AddTransient<JsonFileProductService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// The Configure method gets called by the runtime. It is used to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
