@@ -3,6 +3,18 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileProductService ProductService
 
+<div>
+    <div class="row">
+        <div class="col">
+            <input type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
+            <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
+            <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
+        </div>
+    </div>
+
+</div>
+
+
 <div class="card-columns">
     @foreach (var product in ProductService.GetAllData())
     {
@@ -104,5 +116,25 @@
         System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
         ProductService.AddRating(selectedProductId, rating);
         SelectProduct(selectedProductId);
+    }
+
+    string FilterDataString = "";
+    bool FilterData = false;
+
+    void UpdateFilterText(string text)
+    {
+        FilterDataString = text;
+    }
+
+    void EnableFilterData()
+    {
+        // If the Filter is enabled, set the filter flag
+        FilterData = true;
+    }
+
+    void ClearFilterData()
+    {
+        // If the Filter is enabled, set the filter flag
+        FilterData = false;
     }
 }
