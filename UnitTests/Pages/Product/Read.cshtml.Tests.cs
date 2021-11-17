@@ -5,16 +5,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace UnitTests.Pages.Product.Read
 {
     /// <summary>
-    /// 
+    /// The ReadTests class defines unit tests to cover the ReadModel class
     /// </summary>
     public class ReadTests
     {
-        //
+        // Initialize ReadModel object
         #region TestSetup
         public static ReadModel pageModel;
 
         /// <summary>
-        /// 
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
         /// </summary>
         [SetUp]
         public void TestInitialize()
@@ -27,7 +27,7 @@ namespace UnitTests.Pages.Product.Read
         #endregion TestSetup
 
         /// <summary>
-        /// 
+        /// The OnGet_Valid_Should_Return_Products tests the OnGet method for Products
         /// </summary>
         #region OnGet
         [Test]
@@ -44,7 +44,7 @@ namespace UnitTests.Pages.Product.Read
         }
 
         /// <summary>
-        /// 
+        /// The OnGet_InValid_Id_Bougs_Should_Return_Products tests the ReadModel object to determine if bogus data is returned
         /// </summary>
         [Test]
         public void OnGet_InValid_Id_Bougs_Should_Return_Products()
