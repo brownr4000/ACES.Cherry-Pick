@@ -37,7 +37,45 @@ namespace UnitTests.Components
 
             // Assert
             Assert.AreEqual(true, result.Contains("Chinese Cuisine"));
-
         }
+
+        #region SelectProduct
+        [Test]
+        public void SelectProduct_Valid_ID_Restaurant_Should_Return_Content()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "Chinese Cuisine";
+
+
+
+            var page = RenderComponent<ProductList>();
+
+
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+
+
+
+            // Act
+            button.Click();
+
+
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+
+
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("Chinese Cuisine"));
+        }
+        #endregion SelectProduct
     }
 }
