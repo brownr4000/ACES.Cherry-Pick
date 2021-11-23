@@ -21,7 +21,8 @@ namespace ContosoCrafts.WebSite.Models
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
-        // String Url to store Url property from products.json attribute 
+        // String Url to store Url property from products.json attribute
+        [Url(ErrorMessage = "Not a valid URL")]
         public string Url { get; set; }
 
         // String Title to store Title property from products.json attribute 
