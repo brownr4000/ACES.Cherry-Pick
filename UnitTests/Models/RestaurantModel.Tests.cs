@@ -219,7 +219,6 @@ namespace UnitTests.Models
                 Description = TEST_WORDS,
                 Url = TEST_WORDS,
                 Image = TEST_WORDS,
-                Maker = TEST_WORDS,
                 Quantity = 1,
                 Price = 101.99
             };
