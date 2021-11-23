@@ -136,28 +136,6 @@ namespace UnitTests.Models
         }
         #endregion ImageSetGet
 
-        #region MakerSetGet
-        /// <summary>
-        /// The RestaurantModel_Valid_Maker_Set_And_Get_Should_Return_True checks the functionality of the Maker field
-        /// </summary>
-        [Test]
-        public void RestaurantModel_Valid_Maker_Set_And_Get_Should_Return_True()
-        {
-            // Arrange
-            RestaurantModel dinerModel = new RestaurantModel()
-            {
-                Maker = TEST_WORDS
-            };
-
-            // Act
-            dinerModel.Maker = CHECK_WORDS;
-            var result = dinerModel.Maker;
-
-            // Assert
-            Assert.AreEqual(false, result == TEST_WORDS);
-        }
-        #endregion MakerSetGet
-
         #region QtySetGet
         /// <summary>
         /// The RestaurantModel_Valid_Quantity_Set_And_Get_Should_Return_True checks the functionality of the Quantity field
