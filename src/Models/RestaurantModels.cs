@@ -13,8 +13,8 @@ namespace ContosoCrafts.WebSite.Models
         // String ID to store ID property from products.json attribute
         public string Id { get; set; }
 
-        // String Maker to store Maker property from products.json attribute 
-        public string Maker { get; set; }
+        // String Cuisine to store the Cuisine category property from restaurants.json attribute 
+        public string Cuisine { get; set; }
 
         // Customizing JSON property name "img", and using String Image to store the img property from products.json attribute
         [JsonPropertyName("img")]
