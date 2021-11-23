@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContosoCrafts.WebSite.Models
 {
@@ -14,6 +15,7 @@ namespace ContosoCrafts.WebSite.Models
         public string Id { get; set; } = System.Guid.NewGuid().ToString();
 
         // The Comment
+        [StringLength(maximumLength: 256, MinimumLength = 8, ErrorMessage = "The Comment should have a length of more than {2} and less than {1}")]
         public string Comment { get; set; }
     }
 }
