@@ -40,8 +40,7 @@ namespace UnitTests.Models
                 Title = TEST_WORDS,
                 Description = TEST_WORDS,
                 Url = TEST_WORDS,
-                Image = TEST_WORDS,
-                Maker = TEST_WORDS,
+                Image = TEST_WORDS
             };
 
             // Act
