@@ -22,8 +22,7 @@
     "Url": "https://www.chefkingus.com/",
     "Title": "Chef King",
     "Description": "Chinese Restaurant",
-    "Ratings": [
-    ]
+    "Ratings": null
   },
   {
     "Id": "og-lynnwood",
@@ -32,7 +31,6 @@
     "Url": "https://www.olivegarden.com/locations/wa/lynnwood/lynnwood/1209",
     "Title": "Olive Garden",
     "Description": "Italian food trip in your backyard!",
-    "Ratings": [
-    ]
+    "Ratings": null
   }
 ]
