@@ -26,11 +26,11 @@ namespace ContosoCrafts.WebSite.Models
         public string Url { get; set; }
 
         // String Title to store Title property from products.json attribute 
-        [StringLength(maximumLength: 32, MinimumLength = 1, ErrorMessage = "The Title should have a length of more than {2} and less than {1}")]
+        [StringLength(maximumLength: 32, MinimumLength = 6, ErrorMessage = "The Title should have a length of more than {2} and less than {1}")]
         public string Title { get; set; }
 
         // String Description to store Description property from products.json attribute 
-        [StringLength(maximumLength: 64, MinimumLength = 1, ErrorMessage = "The Description should have a length of more than {2} and less than {1}")]
+        [StringLength(maximumLength: 64, MinimumLength = 6, ErrorMessage = "The Description should have a length of more than {2} and less than {1}")]
         public string Description { get; set; }
 
         // Store the Comments entered by the users on this product
