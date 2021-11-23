@@ -13,7 +13,8 @@ namespace ContosoCrafts.WebSite.Models
         // String ID to store ID property from products.json attribute
         public string Id { get; set; }
 
-        // String Cuisine to store the Cuisine category property from restaurants.json attribute 
+        // String Cuisine to store the Cuisine category property from restaurants.json attribute
+        [StringLength(maximumLength: 32, MinimumLength = 1, ErrorMessage = "The Cuisine should have a length of more than {2} and less than {1}")]
         public string Cuisine { get; set; }
 
         // Customizing JSON property name "img", and using String Image to store the img property from products.json attribute
