@@ -13,10 +13,6 @@ namespace ContosoCrafts.WebSite.Models
         // String ID to store ID property from products.json attribute
         public string Id { get; set; }
 
-        // String Maker to store Maker property from products.json attribute
-        [StringLength(maximumLength: 32, MinimumLength = 1, ErrorMessage = "The Title should have a length of more than {2} and less than {1}")]
-        public string Maker { get; set; }
-
         // Customizing JSON property name "img", and using String Image to store the img property from products.json attribute 
         [JsonPropertyName("img")]
         public string Image { get; set; }
