@@ -37,7 +37,7 @@ namespace UnitTests.Pages.Product.Update
             // Arrange
 
             // Act
-            pageModel.OnGet("selinazawacki-shirt");
+            pageModel.OnGet("dessert");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
