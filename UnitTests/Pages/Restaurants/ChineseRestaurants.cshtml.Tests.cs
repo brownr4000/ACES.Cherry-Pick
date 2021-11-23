@@ -34,7 +34,7 @@ namespace UnitTests.Pages.Product.Read
             // Arrange
 
             // Act
-            pageModel.OnGet("jenlooper-cactus");
+            pageModel.OnGet("chinese");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
