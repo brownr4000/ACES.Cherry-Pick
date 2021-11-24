@@ -67,9 +67,10 @@ namespace UnitTests.Services
         public void AddRating_InValid_ProductID_Should_Return_False()
         {
             // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
 
             // Act
-            var result = TestHelper.ProductService.AddRating("invalid_productid", 1);
+            var result = RestaurantService.AddRating("invalid_productid", 1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -82,12 +83,12 @@ namespace UnitTests.Services
         public void AddRating_InValid_Rating_Negative_Should_Return_False()
         {
             // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
 
-            var data = TestHelper.ProductService.GetAllData().First();
+            var data = RestaurantService.GetAllData().First();
 
             // Act
-
-            var result = TestHelper.ProductService.AddRating(data.Id, -1);
+            var result = RestaurantService.AddRating(data.Id, -1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -100,12 +101,12 @@ namespace UnitTests.Services
         public void AddRating_InValid_Rating_Above_5_Should_Return_False()
         {
             // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
 
-            var data = TestHelper.ProductService.GetAllData().First();
+            var data = RestaurantService.GetAllData().First();
 
             // Act
-
-            var result = TestHelper.ProductService.AddRating(data.Id, 6);
+            var result = RestaurantService.AddRating(data.Id, 6);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -128,11 +129,11 @@ namespace UnitTests.Services
                 Image = " ",
             };
 
-            var newProduct = TestHelper.ProductService.CreateData(data);
+            var newProduct = RestaurantService.CreateData(data);
 
             // Act
-            var newRating = TestHelper.ProductService.AddRating(newProduct.Id, 2);
-            var dataNewList = TestHelper.ProductService.GetAllData().ToList();
+            var newRating = RestaurantService.AddRating(newProduct.Id, 2);
+            var dataNewList = RestaurantService.GetAllData().ToList();
             int newRatingLength = 0;
             foreach (var p in dataNewList) {
                 if (p.Id == newProduct.Id) {
@@ -154,11 +155,12 @@ namespace UnitTests.Services
         public void UpdateData_Invalid_Product_Should_Return_Null()
         {
             // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
 
             // Act
             var invalidProduct = new ProductModel();
             invalidProduct.Id = "invalid product";
-            var resultNew = TestHelper.ProductService.UpdateData(invalidProduct);
+            var resultNew = RestaurantService.UpdateData(invalidProduct);
 
             // Assert
             Assert.IsNull(resultNew);
