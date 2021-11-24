@@ -8,11 +8,15 @@ namespace UnitTests
     /// </summary>
     public abstract class BunitTestContext : TestContextWrapper
     {
-        // The Setup sets the context
+        /// <summary>
+        /// The Setup method sets the context for BUnit tests
+        /// </summary>
         [SetUp]
         public void Setup() => TestContext = new Bunit.TestContext();
 
-        // When done displose removes it, to free up system resources
+        /// <summary>
+        /// The TearDown method frees up system resources by disposing of test context when BUnit tests are completed
+        /// </summary>
         [TearDown]
         public void TearDown() => TestContext.Dispose();
     }
