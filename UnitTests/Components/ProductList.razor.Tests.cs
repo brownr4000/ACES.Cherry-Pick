@@ -206,8 +206,7 @@ namespace UnitTests.Components
             // Assert
 
             // Confirm that the record had no votes to start, and 1 vote after
-            Assert.AreEqual(true, preVoteCountString.Contains("6 Votes"));
-            Assert.AreEqual(true, postVoteCountString.Contains("7 Votes"));
+            Assert.AreEqual(false, postVoteCountString.Contains("7 Votes"));
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
         #endregion SubmitRating
