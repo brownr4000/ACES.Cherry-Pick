@@ -13,6 +13,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
     /// </summary>
     public class DeleteModel : PageModel
     {
+        // Boolean flag to notify if error occurs
+        public bool errorCheck = false;
+
         // Data middletier to access JSON file
         public JsonFileProductService ProductService { get; }
 
@@ -36,7 +39,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Loads the Data
         /// </summary>
         /// <param name="id"></param>
-        public IActionResult OnGet(string id)
+        public void OnGet(string id)
         {
             // Redirect the webpage to the read page populated with the data so the user can read the page
             Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
@@ -44,9 +47,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
             // Checks if Product is Null
             if (Product == null)
             {
-                return RedirectToPage("./Index");
+                errorCheck = true;
             }
-            return Page();
+            
         }
 
         /// <summary>
