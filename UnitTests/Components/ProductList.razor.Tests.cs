@@ -64,6 +64,7 @@ namespace UnitTests.Components
             Assert.AreEqual(true, pageMarkup.Contains("MoreInfoButton_french"));
         }
         #endregion SelectProduct
+
         #region SubmitRating
 
         [Test]
@@ -81,7 +82,7 @@ namespace UnitTests.Components
 
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "Chinese Cuisine";
+            var id = "MoreInfoButton_french";
 
             var page = RenderComponent<ProductList>();
 
@@ -137,7 +138,6 @@ namespace UnitTests.Components
             Assert.AreEqual(true, postVoteCountString.Contains("1 Vote"));
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
-
         #endregion SubmitRating
     }
 }
