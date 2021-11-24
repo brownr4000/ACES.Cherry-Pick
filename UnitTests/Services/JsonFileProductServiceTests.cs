@@ -36,21 +36,6 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         /// <summary>
-        /// The AddRating_IsValid_ unit test
-        /// </summary>
-        [Test]
-        public void AddRating_InValid_()
-        {
-            // Arrange
-
-            // Act
-            //var result = TestHelper.ProductService.AddRating(null, 1);
-
-            // Assert
-            //Assert.AreEqual(false, result);
-        }
-
-        /// <summary>
         /// The AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True unit test
         /// </summary>
         [Test]
@@ -142,7 +127,7 @@ namespace UnitTests.Pages.Product.AddRating
             var newProduct = TestHelper.ProductService.CreateData(data);
 
             // Act
-            var result = TestHelper.ProductService.AddRating(newProduct.Id, 2);
+            var newRating = TestHelper.ProductService.AddRating(newProduct.Id, 2);
             var dataNewList = TestHelper.ProductService.GetAllData().ToList();
             int newRatingLength = 0;
             foreach (var p in dataNewList) {
@@ -153,7 +138,7 @@ namespace UnitTests.Pages.Product.AddRating
             }
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, newRating);
             Assert.AreEqual(1, newRatingLength);
         }
 
