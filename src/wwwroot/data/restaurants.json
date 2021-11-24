@@ -32,5 +32,59 @@
     "Title": "Olive Garden",
     "Description": "Italian food trip in your backyard!",
     "Ratings": null
+  },
+  {
+    "Id": "osf-lynnwood",
+    "Maker": "@oldspaghettifactory",
+    "img": "https://www.osf.com/wp-content/uploads/2018/10/Lynnwood-1.jpg",
+    "Url": "https://www.osf.com/location/lynnwood-wa/",
+    "Title": "The Old Spaghetti Factory",
+    "Description": "Spaghetti!",
+    "Ratings": null
+  },
+  {
+    "Id": "toi",
+    "Maker": "@tasteofindia",
+    "img": "http://www.tasteofindiaseattle.com/home/Albums/Album1/Large/images/Large-a-2.jpg",
+    "Url": "http://www.tasteofindiaseattle.com/home/index.html",
+    "Title": "Taste of India",
+    "Description": "Buckets of Naan",
+    "Ratings": null
+  },
+  {
+    "Id": "bukhara",
+    "Maker": "@bukhara",
+    "img": "https://i.imgur.com/z61s4ap.jpeg",
+    "Url": "http://www.bukharaissaquah.com/",
+    "Title": "Bukhara",
+    "Description": "Now in Issaquah",
+    "Ratings": null
+  },
+  {
+    "Id": "chadat",
+    "Maker": "@chadathai",
+    "img": " ",
+    "Url": "https://www.chadathaiseattle.com/",
+    "Title": "Chada Thai",
+    "Description": "Try the garlic chicken!",
+    "Ratings": null
+  },
+  {
+    "Id": "monkeybridge",
+    "Maker": "@monkeybridge",
+    "img": "http://www.themonkeybridge.com/i/rstrnt/lg/1.png",
+    "Url": "http://www.themonkeybridge.com/menu/",
+    "Title": "The Monkey Bridge",
+    "Description": " ",
+    "Ratings": null
+  },
+  {
+    "Id": "takis",
+    "Maker": "@takismadgreek",
+    "img": "http://www.takismadgreek.com/images/header_logo.png",
+    "Url": "http://www.takismadgreek.com/",
+    "Title": "Takis' Mad Greek",
+    "Description": " ",
+    "Ratings": null
   }
 ]
