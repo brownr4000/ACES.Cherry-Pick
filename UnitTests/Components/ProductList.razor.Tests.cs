@@ -45,7 +45,7 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "Chinese Cuisine";
+            var id = "MoreInfoButton_french";
             var page = RenderComponent<ProductList>();
 
             // Find the Buttons (more info)
@@ -55,13 +55,13 @@ namespace UnitTests.Components
             var button = buttonList.First(m => m.OuterHtml.Contains(id));
 
             // Act
-            //button.Click();
+            button.Click();
 
             // Get the markup to use for the assert
             var pageMarkup = page.Markup;
 
             // Assert
-            Assert.AreEqual(true, pageMarkup.Contains("Chinese Cuisine"));
+            Assert.AreEqual(true, pageMarkup.Contains("MoreInfoButton_french"));
         }
         #endregion SelectProduct
         #region SubmitRating
@@ -90,7 +90,7 @@ namespace UnitTests.Components
 
             // Find the one that matches the ID looking for and click it
             var button = buttonList.First(m => m.OuterHtml.Contains(id));
-            //button.Click();
+            button.Click();
 
             // Get the markup of the page post the Click action
             var buttonMarkup = page.Markup;
@@ -139,6 +139,5 @@ namespace UnitTests.Components
         }
 
         #endregion SubmitRating
-
     }
 }
