@@ -2,15 +2,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-
 using ContosoCrafts.WebSite.Models;
-
 using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
     /// <summary>
-    /// 
+    /// The JsonFileRestaurantService class defines the interface between the web pages and the Json datastore file
     /// </summary>
     public class JsonFileRestaurantService
     {
@@ -19,8 +17,10 @@ namespace ContosoCrafts.WebSite.Services
             WebHostEnvironment = webHostEnvironment;
         }
 
+        // WebHostEnvironment variable to get information about the web hosting environment
         public IWebHostEnvironment WebHostEnvironment { get; }
 
+        // The JsonFileName string defines the filename and location for the products.json file
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "restaurants.json"); }
@@ -174,7 +174,5 @@ namespace ContosoCrafts.WebSite.Services
 
             return data;
         }
-
-
     }
 }
