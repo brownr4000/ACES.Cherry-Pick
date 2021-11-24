@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using System.Linq;
 
@@ -117,13 +118,14 @@ namespace UnitTests.Services
         public void AddRating_No_Existing_Ratings_Should_Return_True()
         {
             // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
             var data = new ProductModel()
             {
                 Id = System.Guid.NewGuid().ToString(),
                 Title = "Enter Title",
                 Description = "Enter Description",
                 Url = "Enter URL",
-                Image = "",
+                Image = " ",
             };
 
             var newProduct = TestHelper.ProductService.CreateData(data);
