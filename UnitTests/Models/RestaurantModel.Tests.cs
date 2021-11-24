@@ -203,6 +203,28 @@ namespace UnitTests.Models
         }
         #endregion RatingSetGet
 
+        #region CusineSetGet
+        /// <summary>
+        /// The RestaurantModel_Valid_Cusine_Set_And_Get_Should_Return_True checks the functionality of the Rating field
+        /// </summary>
+        [Test]
+        public void RestaurantModel_Valid_Cuisine_Set_And_Get_Should_Return_True()
+        {
+            // Arrange
+            RestaurantModel dinerModel = new RestaurantModel()
+            {
+                Cuisine = TEST_WORDS
+            };
+
+            // Act
+            dinerModel.Cuisine = CHECK_WORDS;
+            var result = dinerModel.Cuisine;
+
+            // Assert
+            Assert.AreEqual(false, result == TEST_WORDS);
+        }
+        #endregion RatingSetGet
+
         #region ToStringTest
         /// <summary>
         /// The RestaurantModel_Valid_ToString_Should_Return_True tests the functionality of the overridden ToString method
