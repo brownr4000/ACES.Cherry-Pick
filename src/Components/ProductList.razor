@@ -135,7 +135,26 @@
         SelectProduct(selectedProductId);
     }
 
+    // New Comment Flag to show the input box or not
+    bool NewComment = false;
 
+    // Next Comment Text is what the comment text is
+    string NewCommentText = "";
+    void AddComment()
+    {
+        // Refactor to be a call to the middle tier
+        // ProductService.AddCommentToProduct(selectedProduct, comment);
+
+
+        // Add it to the Comment List
+        selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
+
+        // Call for the Product to be saved
+        ProductService.UpdateData(selectedProduct);
+
+        // Set the NewComment flag to false to hide the input box
+        NewComment = false;
+    }
 
     string FilterDataString = "";
     bool FilterData = false;
