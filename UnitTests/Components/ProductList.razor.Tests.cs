@@ -210,6 +210,7 @@ namespace UnitTests.Components
             Assert.AreEqual(true, postVoteCountString.Contains("7 Votes"));
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
-            #endregion SubmitRating
+        #endregion SubmitRating
     }
-}   
+    
+}
