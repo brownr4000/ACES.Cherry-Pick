@@ -3,29 +3,22 @@ using NUnit.Framework;
 
 namespace UnitTests
 {
+    /// <summary>
+    /// TestFixture class provides methods to help with Unit Tests
+    /// </summary>
     [SetUpFixture]
     public class TestFixture
     {
-        // Path to the Web Root
-        //public static string DataWebRootPath = "./wwwroot";
 
-        // Path to the data folder for the content
-        //public static string DataContentRootPath = "./data/";
-
+        /// <summary>
+        /// The RunBeforeAnyTests method executes methods before any tests are performed
+        /// </summary>
         [OneTimeSetUp]
         public void RunBeforeAnyTests()
         {
             // Run this code once when the test harness starts up.
-
             // This will copy over the latest version of the database files
 
-            // C:\repos\5110\ClassBaseline\UnitTests\bin\Debug\net5.0\wwwroot\data
-            // C:\repos\5110\ClassBaseline\src\wwwroot\data
-            // C:\repos\5110\ClassBaseline\src\bin\Debug\net5.0\wwwroot\data
-
-
-
-            // var DataWebPath = "../../../../src/bin/Debug/net5.0/wwwroot/data";
             var DataWebPath = "../../../../src/wwwroot/data";
             var DataUTDirectory = "wwwroot";
             var DataUTPath = DataUTDirectory + "/data";
@@ -50,6 +43,9 @@ namespace UnitTests
             }
         }
 
+        /// <summary>
+        /// The RunAfterAnyTest method executes methods after any tests are performed
+        /// </summary>
         [OneTimeTearDown]
         public void RunAfterAnyTests()
         {
