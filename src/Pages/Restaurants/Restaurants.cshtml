@@ -1,0 +1,81 @@
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileRestaurantService ProductService
+@using ContosoCrafts.WebSite.Components
+@model ContosoCrafts.WebSite.Pages.Product.ReadModel
+
+@{
+    ViewData["Title"] = "Restaurant";
+}
+
+<h1>@Model.Product.Title</h1>
+
+<div class="container">
+    <h5 class="title" id="productTitle">@Model.Product.Title</h5>
+
+    <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
+
+    <p class="card-text">@Model.Product.Description</p>
+
+</div>
+
+<br />
+<br />
+
+<div class="card-columns">
+    @foreach (var product in ProductService.GetAllData())
+    {
+        <div class="card">
+            <div class="card-img" style="background-image: url('@product.Image');">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@product.Title</h5>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        <button onclick="(e => SelectProduct(product.Id))"
+                                data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                            More Info
+                        </button>
+                    </small>
+                </div>
+                @*<a class="card-link btn btn-dark" href="./Restaurants/Restaurants/@product.Id">@product.Title</a>*@
+            </div>
+        </div>
+    }
+</div>
+@*@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
+
+    <script src="_framework/blazor.server.js"></script>*@
+
+
+       <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="productTitle">Title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-img" style="background-image: url('selectedProduct.Image');">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    
+                                <span class="fa fa-star checked" onclick="(e => SubmitRating(currentStar))"></span>
+                        
+                                <span class="fa fa-star" onclick="(e => SubmitRating(currentStar))"></span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
