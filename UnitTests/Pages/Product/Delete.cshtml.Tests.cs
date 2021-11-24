@@ -51,16 +51,15 @@ namespace UnitTests.Pages.Product.Delete
         public void OnGet_Invalid_Id_Should_Return_Null()
         {
             // Arrange
-            DeleteModel testModel = new DeleteModel(null);
 
             // Act
-            //pageModel.OnGet("bogus");
+            pageModel.OnGet("bogus");
 
             //Reset
 
             // Assert
-            //Assert.AreEqual(false, testModel.ModelState.IsValid);
-            Assert.AreEqual(null, testModel.Product);
+            Assert.AreEqual(null, pageModel.Product);
+            Assert.AreEqual(true, pageModel.errorCheck);
         }
 
         #endregion OnGet
