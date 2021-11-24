@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
-using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services;
 using System.Linq;
 
 namespace UnitTests.Services
 {
     /// <summary>
     /// The JsonFileProductServiceTests defines unit tests to cover the JsonFileProductService class
-    public class JsonFileRestauranttServiceTests
+    public class JsonFileRestaurantServiceTests
     {
         #region TestSetup
         /// <summary>
@@ -27,9 +27,10 @@ namespace UnitTests.Services
         public void AddRating_InValid_Product_Null_Should_Return_False()
         {
             // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
 
             // Act
-            var result = TestHelper.ProductService.AddRating(null, 1);
+            var result = RestaurantService.AddRating(null, 1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -42,14 +43,15 @@ namespace UnitTests.Services
         public void AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True()
         {
             // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
 
             // Get the First data item
-            var data = TestHelper.ProductService.GetAllData().First();
+            var data = RestaurantService.GetAllData().First();
             var countOriginal = data.Ratings.Length;
 
             // Act
-            var result = TestHelper.ProductService.AddRating(data.Id, 5);
-            var dataNewList = TestHelper.ProductService.GetAllData().First();
+            var result = RestaurantService.AddRating(data.Id, 5);
+            var dataNewList = RestaurantService.GetAllData().First();
 
             // Assert
             Assert.AreEqual(true, result);
