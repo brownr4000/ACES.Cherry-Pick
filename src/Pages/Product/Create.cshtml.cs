@@ -53,7 +53,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             Product = CreateData();
 
             // Redirect the webpage to the Update page populated with the data so the user can fill in the fields
-            return RedirectToPage("./Create");
+            return RedirectToPage("./Index");
         }
 
         /// <summary>
