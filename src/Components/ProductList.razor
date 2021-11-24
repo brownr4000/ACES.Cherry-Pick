@@ -150,6 +150,10 @@
         NewCommentText = newCommentText;
     }
 
+    /// <summary>
+    /// Add the comment to the product
+    /// Best to refactor this to be a method to call in the Middle Tier Data service, rathern than putting the logic here...
+    /// </summary>
     void AddComment()
     {
         // Refactor to be a call to the middle tier
