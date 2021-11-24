@@ -25,7 +25,6 @@
   </ItemGroup>
   <ItemGroup>
 	  <Folder Include="Pages\Product\" />
-	  <Folder Include="Services\" />
 	  <Folder Include="Pages\Restaurants\" />
   </ItemGroup>
 </Project>
