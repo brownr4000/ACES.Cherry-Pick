@@ -53,7 +53,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             Product = CreateData();
 
             // Redirect the webpage to the Update page populated with the data so the user can fill in the fields
-            return RedirectToPage("./Index");
+            // return RedirectToPage("./Index");
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             }
 
             ProductService.CreateData(Product);
-
+            // Redirect the webpage to the Index page populated with the data so the user can fill in the fields
             return RedirectToPage("./Index");
 
         }
