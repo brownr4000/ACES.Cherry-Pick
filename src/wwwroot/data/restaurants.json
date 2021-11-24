@@ -1,7 +1,7 @@
 [
   {
     "Id": "dtf-sea",
-    "Maker": "@dintaifung",
+    "Cuisine": "chinese",
     "img": "https://www.dintaifungusa.com/us/image/1070",
     "Url": "https://dintaifungusa.com/",
     "Title": "Din Tai Fung",
@@ -17,7 +17,7 @@
   },
   {
     "Id": "chefk-sea",
-    "Maker": "@chefking",
+    "Cuisine": "chinese",
     "img": "https://website-cdn.menusifu.com/wp-content/uploads/chefkingus.com/2021/09/2-1024x768-1.jpg",
     "Url": "https://www.chefkingus.com/",
     "Title": "Chef King",
@@ -26,7 +26,7 @@
   },
   {
     "Id": "og-lynnwood",
-    "Maker": "@olivegarden",
+    "Cuisine": "italian",
     "img": "https://media.olivegarden.com/en_us/images/marketing/olive-garden-restaurants-italian-style-g2-rdv.jpg",
     "Url": "https://www.olivegarden.com/locations/wa/lynnwood/lynnwood/1209",
     "Title": "Olive Garden",
@@ -35,7 +35,7 @@
   },
   {
     "Id": "osf-lynnwood",
-    "Maker": "@oldspaghettifactory",
+    "Cuisine": "italian",
     "img": "https://www.osf.com/wp-content/uploads/2018/10/Lynnwood-1.jpg",
     "Url": "https://www.osf.com/location/lynnwood-wa/",
     "Title": "The Old Spaghetti Factory",
@@ -44,7 +44,7 @@
   },
   {
     "Id": "toi",
-    "Maker": "@tasteofindia",
+    "Cuisine": "indian",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/BF1fixKOzLkGNYCSGLc_Wg/o.jpg",
     "Url": "http://www.tasteofindiaseattle.com/home/index.html",
     "Title": "Taste of India",
@@ -53,7 +53,7 @@
   },
   {
     "Id": "bukhara",
-    "Maker": "@bukhara",
+    "Cuisine": "indian",
     "img": "https://i.imgur.com/z61s4ap.jpeg",
     "Url": "http://www.bukharaissaquah.com/",
     "Title": "Bukhara",
@@ -62,7 +62,7 @@
   },
   {
     "Id": "chadat",
-    "Maker": "@chadathai",
+    "Cuisine": "thai",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/F-GV4NXLzqIc9jHl0dGscA/o.jpg",
     "Url": "https://www.chadathaiseattle.com/",
     "Title": "Chada Thai",
@@ -71,7 +71,7 @@
   },
   {
     "Id": "monkeybridge",
-    "Maker": "@monkeybridge",
+    "Cuisine": "vietnamese",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/t5u1UmyYqUEvGM-DF1m0xw/o.jpg",
     "Url": "http://www.themonkeybridge.com/menu/",
     "Title": "The Monkey Bridge",
@@ -80,7 +80,7 @@
   },
   {
     "Id": "takis",
-    "Maker": "@takismadgreek",
+    "Cuisine": "greek",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/pCpYeEKH36mNuWyJxY7DXA/o.jpg",
     "Url": "http://www.takismadgreek.com/",
     "Title": "Takis' Mad Greek",
@@ -89,7 +89,7 @@
   },
   {
     "Id": "issian",
-    "Maker": "@issian",
+    "Cuisine": "japanese",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/SyoyQBnBL8SmCIvpMY49KQ/o.jpg",
     "Url": "https://issianseattle.com/",
     "Title": "Issian Japanese Stone Grill",
@@ -98,7 +98,7 @@
   },
   {
     "Id": "sazon",
-    "Maker": "@sazon",
+    "Cuisine": "mexican",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/aYmcJsTQWsuqca2d27AvwA/o.jpg",
     "Url": "https://www.sazonseattle.com/",
     "Title": "Sazon",
