@@ -61,7 +61,6 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(null, pageModel.Product);
             Assert.AreEqual(true, pageModel.errorCheck);
         }
-
         #endregion OnGet
 
         #region OnPostAsync
