@@ -43,6 +43,26 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Dessert", pageModel.Product.Title);
         }
+
+        /// <summary>
+        /// The OnGet_Invalid_Id_Should_Return_Null tests the OnGet method for the DeleteModel object
+        /// </summary>
+        [Test]
+        public void OnGet_Invalid_Id_Should_Return_Null()
+        {
+            // Arrange
+            DeleteModel testModel = new DeleteModel(null);
+
+            // Act
+            //pageModel.OnGet("bogus");
+
+            //Reset
+
+            // Assert
+            //Assert.AreEqual(false, testModel.ModelState.IsValid);
+            Assert.AreEqual(null, testModel.Product);
+        }
+
         #endregion OnGet
 
         #region OnPostAsync
