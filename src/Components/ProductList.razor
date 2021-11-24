@@ -142,6 +142,16 @@
     string NewCommentText = "";
 
     /// <summary>
+    /// Enable the New Comment Entry by setting the NewComment flag
+    /// </summary>
+    /// <param name="comment"></param>
+    void ShowNewCommentInput()
+    {
+        // Setting the new Comment flag to true will show the input box
+        NewComment = true;
+    }
+
+    /// <summary>
     /// Set the New Comment Text variable to the data just entered in the input box
     /// </summary>
     /// <param name="newCommentText"></param>
@@ -154,6 +164,7 @@
     /// Add the comment to the product
     /// Best to refactor this to be a method to call in the Middle Tier Data service, rathern than putting the logic here...
     /// </summary>
+    ///  /// <param name="comment"></param>
     void AddComment()
     {
         // Refactor to be a call to the middle tier
