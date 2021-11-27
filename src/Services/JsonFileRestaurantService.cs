@@ -1,9 +1,9 @@
+using ContosoCrafts.WebSite.Models;
+using Microsoft.AspNetCore.Hosting;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using ContosoCrafts.WebSite.Models;
-using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
@@ -30,12 +30,12 @@ namespace ContosoCrafts.WebSite.Services
         /// GetAllData method
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<ProductModel> GetAllData()
+        public IEnumerable<RestaurantModel> GetAllData()
         {
 
             using(var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
+                return JsonSerializer.Deserialize<RestaurantModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
@@ -101,7 +101,7 @@ namespace ContosoCrafts.WebSite.Services
         /// After create the user can update to set values
         /// </summary>
         /// <returns></returns>
-        public ProductModel CreateData(ProductModel data)
+        public RestaurantModel CreateData(RestaurantModel data)
         {
             // Get the current set, and append the new record to it
             var dataSet = GetAllData();
@@ -119,7 +119,7 @@ namespace ContosoCrafts.WebSite.Services
         /// Save to the data store
         /// </summary>
         /// <param name="data"></param>
-        public ProductModel UpdateData(ProductModel data)
+        public RestaurantModel UpdateData(RestaurantModel data)
         {
             var products = GetAllData();
             var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
@@ -142,12 +142,12 @@ namespace ContosoCrafts.WebSite.Services
         /// <summary>
         /// Save All products data to storage
         /// </summary>
-        private void SaveData(IEnumerable<ProductModel> products)
+        private void SaveData(IEnumerable<RestaurantModel> products)
         {
 
             using (var outputStream = File.Create(JsonFileName))
             {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
+                JsonSerializer.Serialize<IEnumerable<RestaurantModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
                     {
                         SkipValidation = true,
@@ -162,7 +162,7 @@ namespace ContosoCrafts.WebSite.Services
         /// Remove the item from the system
         /// </summary>
         /// <returns></returns>
-        public ProductModel DeleteData(string id)
+        public RestaurantModel DeleteData(string id)
         {
             // Get the current set, and append the new record to it
             var dataSet = GetAllData();
