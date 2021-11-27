@@ -24,7 +24,8 @@ namespace UnitTests.Components
 
         #region DefaultList
         /// <summary>
-        /// This Tests verifies that the Product List should return content
+        /// The ProductList_Default_Should_Return_Content() Unit Test verifies that
+        /// the Product List should return content
         /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
@@ -45,7 +46,8 @@ namespace UnitTests.Components
 
         #region SelectProduct
         /// <summary>
-        /// 
+        /// The SelectProduct_Valid_ID_Restaurant_Should_Return_Content() Unit Test verifies the
+        /// More Info button works
         /// </summary>
         [Test]
         public void SelectProduct_Valid_ID_Restaurant_Should_Return_Content()
@@ -74,21 +76,17 @@ namespace UnitTests.Components
 
         #region SubmitRating
         /// <summary>
-        /// 
+        /// This test verifies that the SubmitRating will change the vote as well as the Star checked
+        /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+        /// The test needs to open the page
+        /// Then open the popup on the card
+        /// Then record the state of the count and star check status
+        /// Then check a star
+        /// Then check again the state of the cound and star check status
         /// </summary>
         [Test]
         public void SubmitRating_Valid_ID_Click_Unstared_Should_Increment_Count_And_Check_Star()
         {
-            /*
-             This test tests that the SubmitRating will change the vote as well as the Star checked
-             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-            The test needs to open the page
-            Then open the popup on the card
-            Then record the state of the count and star check status
-            Then check a star
-            Then check again the state of the cound and star check status
-            */
-
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var id = "MoreInfoButton_french";
@@ -120,7 +118,6 @@ namespace UnitTests.Components
             var preStarChange = starButton.OuterHtml;
 
             // Act
-
             // Click the star button
             starButton.Click();
 
@@ -141,7 +138,6 @@ namespace UnitTests.Components
             var postStarChange = starButton.OuterHtml;
 
             // Assert
-
             // Confirm that the record had no votes to start, and 1 vote after
             Assert.AreEqual(true, preVoteCountString.Contains("Be the first to vote!"));
             Assert.AreEqual(true, postVoteCountString.Contains("1 Vote"));
@@ -149,21 +145,17 @@ namespace UnitTests.Components
         }
 
         /// <summary>
-        /// 
+        /// This test verifies that the SubmitRating will change the vote as well as the Star checked
+        /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+        /// The test needs to open the page
+        /// Then open the popup on the card
+        /// Then record the state of the count and star check status
+        /// Then check a star
+        /// Then check again the state of the cound and star check status
         /// </summary>
         [Test]
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count_And_Leave_Star_Check_Remaining()
         {
-            /*
-             This test tests that the SubmitRating will change the vote as well as the Star checked
-             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-            The test needs to open the page
-            Then open the popup on the card
-            Then record the state of the count and star check status
-            Then check a star
-            Then check again the state of the cound and star check status
-            */
-
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var id = "MoreInfoButton_french";
@@ -195,7 +187,6 @@ namespace UnitTests.Components
             var preStarChange = starButton.OuterHtml;
 
             // Act
-
             // Click the star button
             starButton.Click();
 
@@ -216,7 +207,6 @@ namespace UnitTests.Components
             var postStarChange = starButton.OuterHtml;
 
             // Assert
-
             // Confirm that the record had no votes to start, and 1 vote after
             Assert.AreEqual(false, postVoteCountString.Contains("7 Votes"));
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
@@ -225,7 +215,8 @@ namespace UnitTests.Components
 
         #region Filter
         /// <summary>
-        /// Unit Tests to Demonstrate that an Empty Filter returns all content
+        /// The Filter_InValid_Empty_Should_Return_All_Content Unit Test demonstrates 
+        /// that an Empty Filter returns all content
         /// </summary>
         [Test]
         public void Filter_InValid_Empty_Should_Return_All_Content()
@@ -235,10 +226,10 @@ namespace UnitTests.Components
             var filter = "Filter";
             var page = RenderComponent<ProductList>();
 
-            // Find the Buttons (more info)
+            // Generate list of all buttons
             var buttonList = page.FindAll("button");
 
-            // Find the one that matches the ID looking for and click it
+            // Find the button that matches the given string
             var button = buttonList.First(m => m.OuterHtml.Contains(filter));
 
             // Act
@@ -252,7 +243,8 @@ namespace UnitTests.Components
         }
 
         /// <summary>
-        /// Test for valid Search
+        /// The Filter_Valid_Cuisine_Should_Return_Matching_Content() validates that the filter returns
+        /// the cuisine matching the passed in text
         /// </summary>
         [Test]
         public void Filter_Valid_Cuisine_Should_Return_Matching_Content()
@@ -263,11 +255,11 @@ namespace UnitTests.Components
             var text = " ";
             var page = RenderComponent<ProductList>();
 
-            // Find the Buttons (more info)
+            // Generate list of all buttons
             var buttonList = page.FindAll("Button");
             var inputList = page.FindAll("input");
 
-            // Find the one that matches the ID looking for and click it
+            // Find the button that matches the given string
             var button = buttonList.First(m => m.OuterHtml.Contains(filter));
             var search = inputList.First(m => m.OuterHtml.Contains(text));
 
@@ -283,23 +275,25 @@ namespace UnitTests.Components
         }
 
         /// <summary>
-        /// Test for valid Clear
+        /// The Filter_Clear_Valid_Search_Should_Return_All_Content() validates that the clear button
+        /// functions as expected and returns all cuisines after completing a valid filter
         /// </summary>
         [Test]
         public void Filter_Clear_Valid_Search_Should_Return_All_Content()
         {
-            // Fill productList with Bart
+            
             // Arrange
+            // Filter for valid content
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var filter = "Filter";
             var text = " ";
             var page = RenderComponent<ProductList>();
 
-            // Find the Buttons (more info)
+            // Generate list of all buttons
             var buttonList = page.FindAll("Button");
             var inputList = page.FindAll("input");
 
-            // Find the one that matches the ID looking for and click it
+            // Find the button that matches the given string
             var button = buttonList.First(m => m.OuterHtml.Contains(filter));
             var search = inputList.First(m => m.OuterHtml.Contains(text));
 
@@ -313,14 +307,11 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(true, pageMarkup.Contains("korean"));
 
-            // Clear and search for non-Bart
+            // Clear and search different content
             // Arrange
             var clear = "Clear";
 
-            // Find the Buttons (more info)
-            buttonList = page.FindAll("Button");
-
-            // Find the one that matches the ID looking for and click it
+            // Find the button that matches the given string
             button = buttonList.First(m => m.OuterHtml.Contains(clear));
 
             // Act
