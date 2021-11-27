@@ -173,7 +173,7 @@ namespace UnitTests.Services
         }
 
         /// <summary>
-        /// 
+        /// DeleteData unit test for JsonFileRestaurantService
         /// </summary>
         [Test]
         public void DeleteData_Invalid_Product_Should_Return_Null()
@@ -192,25 +192,31 @@ namespace UnitTests.Services
         }
 
         /// <summary>
-        /// 
+        /// The UpdateData_Valid_Restaurant_Should_Return_True() validates that the UpdateData method
+        /// functions as expected, and makes changes to the data stored within the restaurant datastore
         /// </summary>
         [Test]
         public void UpdateData_Valid_Restaurant_Should_Return_True()
         {
             // Arrange
             JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
+            var dataName = "og-lynnwood";
+            var products = RestaurantService.GetAllData();
+            var productData = products.FirstOrDefault(x => x.Id.Equals(dataName));
 
+            var initialDesc = productData.Description;
+
+            productData.Description = "When you're here, you're family!";
+            
             // Act
-            var invalidProduct = new RestaurantModel();
-            invalidProduct.Id = "invalid product";
-            var resultNew = RestaurantService.UpdateData(invalidProduct);
+            var resultNew = RestaurantService.UpdateData(productData);
+            var checkData = RestaurantService.GetAllData().FirstOrDefault(m => m.Id.Equals(dataName));
 
             // Assert
-            Assert.IsNull(resultNew);
+            Assert.AreEqual(resultNew.Description, checkData.Description);
+            //Assert.IsNull(resultNew);
 
         }
-
-
         #endregion CRUDi
     }
 }
