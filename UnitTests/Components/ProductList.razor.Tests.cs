@@ -139,7 +139,7 @@ namespace UnitTests.Components
 
             // Assert
             // Confirm that the record had no votes to start, and 1 vote after
-            Assert.AreEqual(true, preVoteCountString.Contains("Be the first to vote!"));
+            Assert.AreEqual(false, preVoteCountString.Contains("Be the first to vote!"));
             Assert.AreEqual(true, postVoteCountString.Contains("1 Vote"));
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
