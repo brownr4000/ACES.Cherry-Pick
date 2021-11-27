@@ -10,6 +10,10 @@ namespace UnitTests.Services
     public class JsonFileRestaurantServiceTests
     {
         #region TestSetup
+        // Constant stings to hold values for determining unit test
+        public string TEST_WORDS = "Test";
+        public string CHECK_WORDS = "Check";
+
         /// <summary>
         /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
         /// </summary>
@@ -120,7 +124,7 @@ namespace UnitTests.Services
         {
             // Arrange
             JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
-            var data = new ProductModel()
+            var data = new RestaurantModel()
             {
                 Id = System.Guid.NewGuid().ToString(),
                 Title = "Enter Title",
@@ -146,8 +150,9 @@ namespace UnitTests.Services
             Assert.AreEqual(true, newRating);
             Assert.AreEqual(1, newRatingLength);
         }
+        #endregion AddRating
 
-
+        #region CRUDi
         /// <summary>
         /// Passing Invalid product to UpdateData should return Null
         /// </summary>
@@ -158,7 +163,7 @@ namespace UnitTests.Services
             JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
 
             // Act
-            var invalidProduct = new ProductModel();
+            var invalidProduct = new RestaurantModel();
             invalidProduct.Id = "invalid product";
             var resultNew = RestaurantService.UpdateData(invalidProduct);
 
@@ -166,6 +171,46 @@ namespace UnitTests.Services
             Assert.IsNull(resultNew);
 
         }
-        #endregion AddRating
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void DeleteData_Invalid_Product_Should_Return_Null()
+        {
+            // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
+
+            // Act
+            var invalidProduct = new RestaurantModel();
+            invalidProduct.Id = "invalid product";
+            var resultNew = RestaurantService.UpdateData(invalidProduct);
+
+            // Assert
+            Assert.IsNull(resultNew);
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void UpdateData_Valid_Restaurant_Should_Return_True()
+        {
+            // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
+
+            // Act
+            var invalidProduct = new RestaurantModel();
+            invalidProduct.Id = "invalid product";
+            var resultNew = RestaurantService.UpdateData(invalidProduct);
+
+            // Assert
+            Assert.IsNull(resultNew);
+
+        }
+
+
+        #endregion CRUDi
     }
 }
