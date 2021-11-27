@@ -13,13 +13,15 @@ namespace UnitTests.Components
     public class ProductListTests : BunitTestContext
     {
         #region TestSetup
-
+        /// <summary>
+        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
         }
-
         #endregion TestSetup
+
         /// <summary>
         /// Product List should return content
         /// </summary>
@@ -220,14 +222,14 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "Filter";
+            var filter = "Filter";
             var page = RenderComponent<ProductList>();
 
             // Find the Buttons (more info)
-            var buttonList = page.FindAll("Button");
+            var buttonList = page.FindAll("button");
 
             // Find the one that matches the ID looking for and click it
-            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            var button = buttonList.First(m => m.OuterHtml.Contains(filter));
 
             // Act
             button.Click();
@@ -247,8 +249,8 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "Search_ID";
-            var id2 = "SearchCriteria_ID";
+            var filter = "Filter";
+            var text = " ";
             var page = RenderComponent<ProductList>();
 
             // Find the Buttons (more info)
@@ -256,19 +258,20 @@ namespace UnitTests.Components
             var inputList = page.FindAll("input");
 
             // Find the one that matches the ID looking for and click it
-            var button = buttonList.First(m => m.OuterHtml.Contains(id));
-            var search = inputList.First(m => m.OuterHtml.Contains(id2));
+            var button = buttonList.First(m => m.OuterHtml.Contains(filter));
+            var search = inputList.First(m => m.OuterHtml.Contains(text));
 
             // Act
-            search.Change("Seeking for 2022 intern");
+            search.Change("korean");
             button.Click();
 
             // Get the markup to use for the assert
             var pageMarkup = page.Markup;
 
             // Assert
-            Assert.AreEqual(true, pageMarkup.Contains("June Liao"));
+            Assert.AreEqual(true, pageMarkup.Contains("korean"));
         }
+
         /// <summary>
         /// Test for valid Clear
         /// </summary>
@@ -278,17 +281,17 @@ namespace UnitTests.Components
             // Fill productList with Bart
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "Filter";
-            var id2 = "FilterDataString";
+            var filter = "Filter";
+            var text = " ";
             var page = RenderComponent<ProductList>();
 
             // Find the Buttons (more info)
-            var buttonList = page.FindAll("button");
+            var buttonList = page.FindAll("Button");
             var inputList = page.FindAll("input");
 
             // Find the one that matches the ID looking for and click it
-            var button = buttonList.First(m => m.OuterHtml.Contains(id));
-            var search = inputList.First(m => m.OuterHtml.Contains(id2));
+            var button = buttonList.First(m => m.OuterHtml.Contains(filter));
+            var search = inputList.First(m => m.OuterHtml.Contains(text));
 
             // Act
             search.Change("korean");
@@ -302,13 +305,13 @@ namespace UnitTests.Components
 
             // Clear and search for non-Bart
             // Arrange
-            var id3 = "Clear_ID";
+            var clear = "Clear";
 
             // Find the Buttons (more info)
             buttonList = page.FindAll("Button");
 
             // Find the one that matches the ID looking for and click it
-            button = buttonList.First(m => m.OuterHtml.Contains(id3));
+            button = buttonList.First(m => m.OuterHtml.Contains(clear));
 
             // Act
             button.Click();
@@ -319,7 +322,6 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(true, pageMarkup.Contains("chinese"));
         }
-
         #endregion Filter
     }
 }
