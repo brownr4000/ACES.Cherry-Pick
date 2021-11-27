@@ -188,7 +188,6 @@ namespace UnitTests.Services
 
             // Assert
             Assert.IsNull(resultNew);
-
         }
 
         /// <summary>
@@ -214,8 +213,34 @@ namespace UnitTests.Services
 
             // Assert
             Assert.AreEqual(resultNew.Description, checkData.Description);
-            //Assert.IsNull(resultNew);
+        }
 
+        [Test]
+        public void DeleteData_Valid_Restaurant_Should_Return_True()
+        {
+            // Create new Restaurant
+            // Arrange
+            JsonFileRestaurantService RestaurantService = new JsonFileRestaurantService(TestHelper.MockWebHostEnvironment.Object);
+
+            RestaurantModel dinerModel = new RestaurantModel()
+            {
+                Id = TEST_WORDS,
+                Cuisine = TEST_WORDS,
+                Title = TEST_WORDS,
+                Description = TEST_WORDS
+            };
+
+            // Act
+            var restaurantCheck = RestaurantService.CreateData(dinerModel);
+            var checkData = RestaurantService.GetAllData().FirstOrDefault(m => m.Id.Equals(dinerModel.Id));
+
+            RestaurantService.DeleteData(dinerModel.Id);
+
+            var deleteCheck = RestaurantService.GetAllData().FirstOrDefault(m => m.Id.Equals(dinerModel.Id));
+
+            // Assert
+            Assert.AreEqual(TEST_WORDS, checkData.Description);
+            Assert.AreEqual(null, deleteCheck);
         }
         #endregion CRUDi
     }
