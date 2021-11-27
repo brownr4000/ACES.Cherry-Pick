@@ -134,8 +134,8 @@ namespace UnitTests.Components
             // Assert
 
             // Confirm that the record had no votes to start, and 1 vote after
-            Assert.AreEqual(false, preVoteCountString.Contains("Be the first to vote!"));
-            //Assert.AreEqual(true, postVoteCountString.Contains("1 Vote"));
+            Assert.AreEqual(true, preVoteCountString.Contains("Be the first to vote!"));
+            Assert.AreEqual(true, postVoteCountString.Contains("1 Vote"));
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
 
@@ -210,6 +210,116 @@ namespace UnitTests.Components
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
         #endregion SubmitRating
+
+        #region Filter
+        /// <summary>
+        /// Test for valid Search
+        /// </summary>
+        [Test]
+        public void Search_InValid_Empty_Should_Return_All_Content()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "Filter";
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+
+            // Act
+            button.Click();
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("chinese"));
+        }
+
+        /// <summary>
+        /// Test for valid Search
+        /// </summary>
+        [Test]
+        public void Search_Valid_Cuisine_Should_Return_Matching_Content()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "Search_ID";
+            var id2 = "SearchCriteria_ID";
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+            var inputList = page.FindAll("input");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            var search = inputList.First(m => m.OuterHtml.Contains(id2));
+
+            // Act
+            search.Change("Seeking for 2022 intern");
+            button.Click();
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("June Liao"));
+        }
+        /// <summary>
+        /// Test for valid Clear
+        /// </summary>
+        [Test]
+        public void Clear_Valid_Search_Should_Return_All_Content()
+        {
+            // Fill productList with Bart
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "Filter";
+            var id2 = "FilterDataString";
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("button");
+            var inputList = page.FindAll("input");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            var search = inputList.First(m => m.OuterHtml.Contains(id2));
+
+            // Act
+            search.Change("korean");
+            button.Click();
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("korean"));
+
+            // Clear and search for non-Bart
+            // Arrange
+            var id3 = "Clear_ID";
+
+            // Find the Buttons (more info)
+            buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            button = buttonList.First(m => m.OuterHtml.Contains(id3));
+
+            // Act
+            button.Click();
+
+            // Get the markup to use for the assert
+            pageMarkup = page.Markup;
+
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("chinese"));
+        }
+
+        #endregion Filter
     }
-    
 }
