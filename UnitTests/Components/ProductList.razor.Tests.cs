@@ -22,8 +22,9 @@ namespace UnitTests.Components
         }
         #endregion TestSetup
 
+        #region DefaultList
         /// <summary>
-        /// Product List should return content
+        /// This Tests verifies that the Product List should return content
         /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
@@ -40,8 +41,12 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(true, result.Contains("Chinese Cuisine"));
         }
+        #endregion DefaultList
 
         #region SelectProduct
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void SelectProduct_Valid_ID_Restaurant_Should_Return_Content()
         {
@@ -68,7 +73,9 @@ namespace UnitTests.Components
         #endregion SelectProduct
 
         #region SubmitRating
-
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void SubmitRating_Valid_ID_Click_Unstared_Should_Increment_Count_And_Check_Star()
         {
@@ -141,6 +148,9 @@ namespace UnitTests.Components
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count_And_Leave_Star_Check_Remaining()
         {
@@ -215,10 +225,10 @@ namespace UnitTests.Components
 
         #region Filter
         /// <summary>
-        /// Test for valid Search
+        /// Unit Tests to Demonstrate that an Empty Filter returns all content
         /// </summary>
         [Test]
-        public void Search_InValid_Empty_Should_Return_All_Content()
+        public void Filter_InValid_Empty_Should_Return_All_Content()
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -245,7 +255,7 @@ namespace UnitTests.Components
         /// Test for valid Search
         /// </summary>
         [Test]
-        public void Search_Valid_Cuisine_Should_Return_Matching_Content()
+        public void Filter_Valid_Cuisine_Should_Return_Matching_Content()
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -276,7 +286,7 @@ namespace UnitTests.Components
         /// Test for valid Clear
         /// </summary>
         [Test]
-        public void Clear_Valid_Search_Should_Return_All_Content()
+        public void Filter_Clear_Valid_Search_Should_Return_All_Content()
         {
             // Fill productList with Bart
             // Arrange
