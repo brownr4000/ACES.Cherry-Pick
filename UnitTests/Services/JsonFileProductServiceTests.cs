@@ -142,6 +142,25 @@ namespace UnitTests.Services
             Assert.AreEqual(1, newRatingLength);
         }
 
+        /// <summary>
+        /// Invalid ratings with Null in AddRating should set Ratings to not null
+        /// </summary>
+        [Test]
+        public void AddRating_InValid_Ratings_Null_Should_Set_Ratings_Not_Null()
+        {
+            // Arrange
+
+            // Act
+            // Get a data whose rating is null
+            var nullRatingData = TestHelper.ProductService.GetAllData().First(x => x.Ratings == null);
+            // This data's rating should become not null after executing the following statement
+            var result = TestHelper.ProductService.AddRating(nullRatingData.Id, 4);
+            // Re-read the data
+            var data = TestHelper.ProductService.GetAllData().First(x => x.Id == nullRatingData.Id);
+
+            // Assert
+            Assert.AreEqual(false, data.Ratings == null);
+        }
 
         /// <summary>
         /// Passing Invalid product to UpdateData should return Null
