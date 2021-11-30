@@ -12,22 +12,21 @@ namespace ContosoCrafts.WebSite.CuisineType
     {
         // EnumMember value is intened to convert the numerical ratings
         // in the JSON file to their respective ENUM. Still not working, bug logged
-        UNKNOWN = 0,
-        CHINESE = 1,
-        INDIAN = 2,
-        GREEK = 3,
-        MEDITERRANEAN = 4,
-        KOREAN = 5,
-        ITALIAN = 6,
-        SEAFOOD = 7,
-        THAI = 8,
-        FRENCH = 9,
-        CAFE = 10,
-        JAPANESE = 11,
-        MEXICAN = 12,
-        SPANISH = 13,
-        VIETNAMESE = 14,
-        DESSERT = 15,
+        Chinese = 1,
+        Korean = 2,
+        Japanese = 3,
+        Indian = 4,
+        Italian = 5,
+        Mexican = 6,
+        Greak = 7,
+        Thai = 8,
+        Spanish = 9,
+        Mediterranean = 10,
+        French = 11,
+        Vietnamese = 12,
+        Seafood = 13,
+        Cafe = 14,
+        Dessert = 15,
     }
 
     public static class EnumExtensions
