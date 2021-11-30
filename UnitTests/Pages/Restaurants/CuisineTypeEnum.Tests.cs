@@ -27,7 +27,7 @@ namespace UnitTests.Pages.Restaurants
             // Arrange
 
             // Act
-            var testing = EnumExtensions.convertToString(CuisineType.KOREAN);
+            var testing = EnumExtensions.convertToString(CuisineType.Korean);
 
             // Assert
             Assert.AreEqual(testing, "korean");
