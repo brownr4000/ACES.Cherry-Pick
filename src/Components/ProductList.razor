@@ -86,6 +86,19 @@
                                         </div>
                                     </div>
                                 }
+
+                                // If this is a new comment, then add the Input boxes for it, else show the Add Comment Button
+                                if (NewComment)
+                                {
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
+                                            <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
+                                        </div>
+                                    </div>
+
+                                }
+
                             }
 
                             </div>
@@ -95,7 +108,7 @@
             </div>
         </div>
     </div>
-}
+ }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
