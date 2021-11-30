@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using ContosoCrafts.WebSite.CuisineType;
 
 namespace UnitTests.Pages.Restaurants
@@ -19,7 +18,9 @@ namespace UnitTests.Pages.Restaurants
         #endregion TestSetup
 
         #region EnumToString
-
+        /// <summary>
+        /// The CuisineTypeEnum_Valid_ToString_Should_Return_True  tests the functionality of the convertToString method for the enum
+        /// </summary>
         [Test]
         public void CuisineTypeEnum_Valid_ToString_Should_Return_True()
         {
