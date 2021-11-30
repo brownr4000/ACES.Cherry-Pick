@@ -74,6 +74,23 @@
                             <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
                         }
                     }
+                    <div class="row">
+                        <div class="col">
+                            @{
+                                // First show all the existing comments
+                                foreach (var comment in selectedProduct.CommentList)
+                                {
+                                    <div class="row">
+                                        <div class="col">
+                                            @comment.Comment
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            </div>
+                    </div>
+
                 </div>
             </div>
         </div>
