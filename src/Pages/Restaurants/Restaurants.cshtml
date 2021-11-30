@@ -24,6 +24,7 @@
 <div class="card-columns">
     @foreach (var product in ProductService.GetAllData())
     {
+
         <div class="card">
             <div class="card-img" style="background-image: url('@product.Image');">
             </div>
@@ -40,14 +41,8 @@
                 @*<a class="card-link btn btn-dark" href="./Restaurants/Restaurants/@product.Id">@product.Title</a>*@
             </div>
         </div>
-    }
-</div>
-@*@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
 
-    <script src="_framework/blazor.server.js"></script>*@
-
-
-       <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -66,15 +61,14 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                    
-                                <span class="fa fa-star checked" onclick="(e => SubmitRating(currentStar))"></span>
-                        
-                                <span class="fa fa-star" onclick="(e => SubmitRating(currentStar))"></span>
-                        
+
+                        <span class="fa fa-star checked" onclick="(e => SubmitRating(currentStar))"></span>
+
+                        <span class="fa fa-star" onclick="(e => SubmitRating(currentStar))"></span>
+
                     </div>
                 </div>
             </div>
         </div>
-
-
-@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
+    }
+</div>
