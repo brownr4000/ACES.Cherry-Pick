@@ -1,22 +1,12 @@
 ﻿using System;
-using NUnit.Framework;
-using ContosoCrafts.WebSite.Pages.Restaurants;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace UnitTests.Pages.Restaurants
 {
-    class CuisineTypeEnumTests
+    class CuisineTypeEnum
     {
-        #region TestSetup
-
-        /// <summary>
-        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
-        /// </summary>
-        [SetUp]
-        public void TestInitialize()
-        {
-
-        }
-        #endregion TestSetup
     }
 }
