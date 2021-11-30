@@ -16,44 +16,59 @@ namespace UnitTests.Models
     {
         #region TestSetup
         // Constant stings to hold values for determining unit test
-        public string TEST_WORDS = "Test";
-        public string CHECK_WORDS = "Check";
+        static public string TEST_WORDS = "Test";
+        static public string CHECK_WORDS = "Check";
 
-        /// <summary>
-        /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
-        /// </summary>
-        [SetUp]
+        CommentModel wordsModel = new()
+        {
+            Comment = TEST_WORDS
+        };
+
+    /// <summary>
+    /// The TestInitialize method creates the necessary objects for the initialization of the unit tests
+    /// </summary>
+    [SetUp]
         public void TestInitialize()
         {
 
         }
-
         #endregion TestSetup
 
-        #region ToStringTest
+        #region IdSetGet
         /// <summary>
-        /// The CommentModel_Valid_ToString_Should_Return_True tests the functionality of the overridden ToString method
+        /// The CommentModel_Valid_Id_Set_And_Get_Should_Return_True checks the functionality of the Id field
         /// </summary>
         [Test]
-        public void CommentModel_Valid_ToString_Should_Return_True()
+        public void CommentModel_Valid_Id_Set_And_Get_Should_Return_True()
         {
             // Arrange
-            // Creating a ProductModel with test values
-            ProductModel thingModel = new ProductModel()
-            {
-                Id = TEST_WORDS,
-                Title = TEST_WORDS,
-                Description = TEST_WORDS,
-                Url = TEST_WORDS,
-                Image = TEST_WORDS
-            };
 
             // Act
-            var result = thingModel.ToString();
+            var start = wordsModel.Id;
+            wordsModel.Id = CHECK_WORDS;
+            var result = wordsModel.Id;
 
             // Assert
-            Assert.AreEqual(false, result.IsNullOrEmpty());
+            Assert.AreEqual(false, start == result);
         }
-        #endregion ToStringTest
+        #endregion IdSetGet
+
+        #region CommentSetGet
+        /// <summary>
+        /// The CommentModel_Valid_Comment_Set_And_Get_Should_Return_True checks the functionality of the Comment field
+        /// </summary>
+        [Test]
+        public void CommentModel_Valid_Comment_Set_And_Get_Should_Return_True()
+        {
+            // Arrange
+
+            // Act
+            wordsModel.Comment = CHECK_WORDS;
+            var result = wordsModel.Comment;
+
+            // Assert
+            Assert.AreEqual(false, result == TEST_WORDS);
+        }
+        #endregion TitleSetGet
     }
 }
