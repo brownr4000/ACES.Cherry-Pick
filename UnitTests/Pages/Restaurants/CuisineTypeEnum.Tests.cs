@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Pages.Restaurants;
+using ContosoCrafts.WebSite.CuisineType;
 
 namespace UnitTests.Pages.Restaurants
 {
@@ -26,8 +26,10 @@ namespace UnitTests.Pages.Restaurants
             // Arrange
 
             // Act
+            var testing = EnumExtensions.convertToString(CuisineType.KOREAN);
 
             // Assert
+            Assert.AreEqual(testing, "korean");
         }
 
         #endregion EnumToString
