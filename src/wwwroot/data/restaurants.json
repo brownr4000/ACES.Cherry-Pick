@@ -6,6 +6,7 @@
     "Url": "https://dintaifungusa.com/",
     "Title": "Din Tai Fung",
     "Description": "Chinese Restaurant with Dim Sum and dumplings",
+    "ProductType": 1,
     "Ratings": [
       5,
       5,
@@ -22,6 +23,7 @@
     "Url": "https://www.chefkingus.com/",
     "Title": "Chef King",
     "Description": "Chinese Restaurant",
+    "ProductType": 1,
     "Ratings": null
   },
   {
@@ -31,6 +33,7 @@
     "Url": "https://www.olivegarden.com/locations/wa/lynnwood/lynnwood/1209",
     "Title": "Olive Garden",
     "Description": "Italian food trip in your backyard!",
+    "ProductType": 5,
     "Ratings": null
   },
   {
@@ -40,6 +43,7 @@
     "Url": "https://www.osf.com/location/lynnwood-wa/",
     "Title": "The Old Spaghetti Factory",
     "Description": "Spaghetti!",
+    "ProductType": 5,
     "Ratings": null
   },
   {
@@ -49,6 +53,7 @@
     "Url": "http://www.tasteofindiaseattle.com/home/index.html",
     "Title": "Taste of India",
     "Description": "Buckets of Naan",
+    "ProductType": 4,
     "Ratings": null
   },
   {
@@ -58,6 +63,7 @@
     "Url": "http://www.bukharaissaquah.com/",
     "Title": "Bukhara",
     "Description": "Now in Issaquah",
+    "ProductType": 4,
     "Ratings": null
   },
   {
@@ -67,6 +73,7 @@
     "Url": "https://www.chadathaiseattle.com/",
     "Title": "Chada Thai",
     "Description": "Try the garlic chicken!",
+    "ProductType": 8,
     "Ratings": null
   },
   {
@@ -76,6 +83,7 @@
     "Url": "http://www.themonkeybridge.com/menu/",
     "Title": "The Monkey Bridge",
     "Description": "Pho",
+    "ProductType": 12,
     "Ratings": null
   },
   {
@@ -85,6 +93,7 @@
     "Url": "http://www.takismadgreek.com/",
     "Title": "Takis' Mad Greek",
     "Description": "Greek and Med",
+    "ProductType": 7,
     "Ratings": null
   },
   {
@@ -94,6 +103,7 @@
     "Url": "https://issianseattle.com/",
     "Title": "Issian Japanese Stone Grill",
     "Description": "Japanese food and beer",
+    "ProductType": 3,
     "Ratings": null
   },
   {
@@ -103,6 +113,7 @@
     "Url": "https://www.sazonseattle.com/",
     "Title": "Sazon",
     "Description": " ",
+    "ProductType": 6,
     "Ratings": null
   }
 ]
