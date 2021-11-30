@@ -17,5 +17,19 @@ namespace UnitTests.Pages.Restaurants
 
         }
         #endregion TestSetup
+
+        #region EnumToString
+
+        [Test]
+        public void CuisineTypeEnum_Valid_ToString_Should_Return_True()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+        }
+
+        #endregion EnumToString
     }
 }
