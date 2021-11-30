@@ -99,11 +99,20 @@
 
                                 }
 
+                                // If this is not a new comment, then show the buttons for Adding comment and Close
+                                if (NewComment == false)
+                                {
+                                    <div class="row">
+                                        <div class="col">
+                                            <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-primary">Add Comment</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                }
                             }
 
-                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
