@@ -5,16 +5,19 @@
     "img": "https://www.dintaifungusa.com/us/image/1070",
     "Url": "https://dintaifungusa.com/",
     "Title": "Din Tai Fung",
-    "Description": "Chinese Restaurant with Dim Sum and dumplings",
+    "Description": "Chinese Restaurant with Dim Sum and dumplings, Address: 700 Bellevue Way NE #280, Bellevue, Phone:425-698-1095",
     "ProductType": 1,
-    "Ratings": [
-      5,
-      5,
-      3,
-      2,
-      1,
-      5
-    ]
+    "Ratings": null
+  },
+  {
+    "Id": "dtf-sea2",
+    "Cuisine": "chinese",
+    "img": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_3333,w_5000,x_0,y_0/c_limit,dpr_2.0,f_auto,fl_lossy,q_80,w_700/0319-chinatown-doughzone_jj5ma4.jpg",
+    "Url": "https://dintaifungusa.com/",
+    "Title": "Dough Zone",
+    "Description": "Chinese Restaurant",
+    "ProductType": 1,
+    "Ratings": null
   },
   {
     "Id": "chefk-sea",
@@ -26,6 +29,27 @@
     "ProductType": 1,
     "Ratings": null
   },
+  {
+    "Id": "dtf-sea3",
+    "Cuisine": "korean",
+    "img": "https://s3-media0.fl.yelpcdn.com/bphoto/8AGMHGN6e4o3WvKFRN-iKw/o.jpg",
+    "Url": "https://dintaifungusa.com/",
+    "Title": "Bowl Gogi",
+    "Description": "Korean restaurant with Bibimbap, rice bowl and lunch box, Address: 500 108th Ave Northeast, Bellevue, WA 98004, Phone: 425-454-0568",
+    "ProductType": 2,
+    "Ratings": null
+  },
+  {
+    "Id": "dtf-sea4",
+    "Cuisine": "korean",
+    "img": "https://s3-media0.fl.yelpcdn.com/bphoto/CY9hZ6dE30SIm02BaO8P-A/o.jpg",
+    "Url": "https://dintaifungusa.com/",
+    "Title": "Palace Korean Bar & Grill",
+    "Description": "Korean restaurant ",
+    "ProductType": 2,
+    "Ratings": null
+  },
+
   {
     "Id": "og-lynnwood",
     "Cuisine": "italian",
