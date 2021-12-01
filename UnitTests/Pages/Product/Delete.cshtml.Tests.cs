@@ -65,7 +65,7 @@ namespace UnitTests.Pages.Product.Delete
 
         #region OnPostAsync
         /// <summary>
-        /// The OnPostAsync_Valid_Should_Return_Products checks the functionality of UpdateData method to remove an item from the datastore
+        /// The OnPostAsync_Valid_Should_Return_Products checks the functionality of DeleteData method to remove an item from the datastore
         /// </summary>
         [Test]
         public void OnPostAsync_Valid_Should_Return_Products()
@@ -76,14 +76,14 @@ namespace UnitTests.Pages.Product.Delete
                 Id = System.Guid.NewGuid().ToString(),
                 Title = "Enter Title",
                 Description = "Enter Description",
-                Url = "http://www.sometestdomain.com",
+                Url = "http://www.sometestdomain211.com",
                 Image = "",
             };
 
             // First Create the product to delete
             pageModel.Product = TestHelper.ProductService.CreateData(data);
-            pageModel.Product.Title = "Example to Delete";
-            TestHelper.ProductService.UpdateData(pageModel.Product);
+            
+            TestHelper.ProductService.DeleteData(pageModel.Product.Id);
 
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;

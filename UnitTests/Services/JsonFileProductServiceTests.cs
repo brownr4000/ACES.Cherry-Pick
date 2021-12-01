@@ -152,6 +152,17 @@ namespace UnitTests.Services
         public void AddRating_InValid_Ratings_Null_Should_Set_Ratings_Not_Null()
         {
             // Arrange
+            var pdata = new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Enter Title",
+                Description = "Enter Description",
+                Url = "http://www.sometestdomain1.com",
+                Image = "",
+            };
+
+            // First Create a new product with no rating
+            TestHelper.ProductService.CreateData(pdata);
 
             // Act
             // Get a data whose rating is null
@@ -163,6 +174,9 @@ namespace UnitTests.Services
 
             // Assert
             Assert.AreEqual(false, data.Ratings == null);
+
+            //Clean up
+            TestHelper.ProductService.DeleteData(pdata.Id);
         }
 
         /// <summary>
