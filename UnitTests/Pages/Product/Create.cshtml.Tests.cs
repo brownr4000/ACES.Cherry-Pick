@@ -71,12 +71,17 @@ namespace UnitTests.Pages.Product.Create
             pageModel.OnGet();
             var data = pageModel.Product;
 
+            pageModel.Product.Url = "httP://www.asdfgi.com";
+
             // Act
             pageModel.OnPost();
             var result = TestHelper.ProductService.GetAllData().First(x => x.Id == data.Id);
 
             // Assert
             Assert.AreEqual(data.Id, result.Id);
+
+            //Clean up
+            TestHelper.ProductService.DeleteData(data.Id);
         }
 
         /// <summary>
