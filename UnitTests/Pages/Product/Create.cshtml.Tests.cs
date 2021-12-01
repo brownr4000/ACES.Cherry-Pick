@@ -125,6 +125,22 @@ namespace UnitTests.Pages.Product.Create
             //Clean up
             TestHelper.ProductService.DeleteData(data.Id);
         }
+
+        /// <summary>
+        /// The OnPost_Null_Product_Return_page test the OnPost method for when the Product is null
+        /// </summary>
+        [Test]
+        public void OnPost_Null_Product_Return_Page()
+        {
+            // Arrange
+            pageModel.OnGet();
+            pageModel.Product = null;
+
+            // Act
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+        }
         #endregion OnPost
     }
 }
