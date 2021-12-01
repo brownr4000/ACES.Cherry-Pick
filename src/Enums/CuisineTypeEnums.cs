@@ -3,7 +3,7 @@
 /// <summary>
 /// This is the ENUM class for cuisine type
 /// </summary>
-namespace ContosoCrafts.WebSite.CuisineType
+namespace ContosoCrafts.WebSite.CuisineTypeEnums
 {
     /// <summary>
     /// Function declares the ENUMs for cuisine type
