@@ -70,15 +70,21 @@ namespace UnitTests.Pages.Product.Update
         [Test]
         public void OnPostAsync_Valid_Should_Return_Products()
         {
+           
             // Arrange
-            pageModel.Product = new ProductModel
+            var data = new ProductModel()
             {
-                Id = "selinazawacki-moon",
-                Title = "title",
-                Description = "description",
-                Url = "url",
-                Image = "image"
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Enter Title",
+                Description = "Enter Description",
+                Url = "http://www.sometestdomain2171.com",
+                Image = "",
             };
+
+            // First Create the product to delete
+            pageModel.Product = TestHelper.ProductService.CreateData(data);
+            pageModel.Product.Title = "Example to update";
+            TestHelper.ProductService.UpdateData(pageModel.Product);
 
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;
@@ -86,6 +92,9 @@ namespace UnitTests.Pages.Product.Update
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
+
+            //Clean up
+            TestHelper.ProductService.DeleteData(data.Id);
         }
 
         /// <summary>

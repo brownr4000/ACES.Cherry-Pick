@@ -76,7 +76,7 @@ namespace UnitTests.Pages.Product.Delete
                 Id = System.Guid.NewGuid().ToString(),
                 Title = "Enter Title",
                 Description = "Enter Description",
-                Url = "http://www.sometestdomain211.com",
+                Url = "http://www.sometestdomain2112.com",
                 Image = "",
             };
 
