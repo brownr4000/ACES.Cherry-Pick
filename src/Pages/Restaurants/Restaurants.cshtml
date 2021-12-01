@@ -32,8 +32,6 @@
 
             var productGroup = restaurantList.Where(m => m.ProductType == Model.Product.ProductType);
 
-            productGroup = productGroup.OrderBy(mn => mn.Title);
-
             foreach (var product in productGroup)
             {
 
