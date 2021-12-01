@@ -118,9 +118,9 @@ namespace UnitTests.Services
             var data = new ProductModel()
             {
                 Id = System.Guid.NewGuid().ToString(),
-                Title = "Enter Title",
-                Description = "Enter Description",
-                Url = "Enter URL",
+                Title = "Test Title",
+                Description = "Test Description",
+                Url = "http://www.asdfghii.com",
                 Image = "",
             };
 
@@ -140,6 +140,9 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(true, newRating);
             Assert.AreEqual(1, newRatingLength);
+
+            //Clean up
+            TestHelper.ProductService.DeleteData(newProduct.Id);
         }
 
         /// <summary>
