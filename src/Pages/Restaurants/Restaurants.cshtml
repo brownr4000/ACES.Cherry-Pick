@@ -1,6 +1,9 @@
 ﻿@page "{id}"
+@using ContosoCrafts.WebSite.CuisineTypeEnums
 @using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
 @inject JsonFileRestaurantService ProductService
+@inject JsonFileRestaurantService RestaurantService
 @using ContosoCrafts.WebSite.Components
 @model ContosoCrafts.WebSite.Pages.Product.ReadModel
 
@@ -22,9 +25,21 @@
 <br />
 
 <div class="card-columns">
-    @foreach (var product in ProductService.GetAllData())
-    {
-        
+
+    @{
+        var restaurantList = RestaurantService.GetAllData();
+        @*foreach (CuisineType cuisineType in Enum.GetValues(typeof(CuisineType)))*@
+        {
+
+            var productGroup = restaurantList.Where(m => m.ProductType == Model.Product.ProductType);
+
+            productGroup = productGroup.OrderBy(mn => mn.Title);
+
+            foreach (var product in productGroup)
+            {
+
+
+
         <div class="card">
             <div class="card-img" style="background-image: url('@product.Image');">
             </div>
@@ -38,7 +53,6 @@
                         </button>
                     </small>
                 </div>
-                @*<a class="card-link btn btn-dark" href="./Restaurants/Restaurants/@product.Id">@product.Title</a>*@
             </div>
         </div>
 
@@ -70,5 +84,7 @@
                 </div>
             </div>
         </div>
-    }
+                }
+            }
+        }
 </div>
