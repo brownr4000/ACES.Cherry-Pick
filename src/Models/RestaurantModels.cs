@@ -43,6 +43,8 @@ namespace ContosoCrafts.WebSite.Models
         [Range(0, 100000, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public double Price { get; set; }
 
+        public int ProductType { get; set; }
+
         // Override ToString() method for class
         public override string ToString() => JsonSerializer.Serialize<RestaurantModel>(this);
 
