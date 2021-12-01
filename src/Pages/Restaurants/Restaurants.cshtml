@@ -4,6 +4,7 @@
 @inject JsonFileRestaurantService ProductService
 @inject JsonFileRestaurantService RestaurantService
 @model ContosoCrafts.WebSite.Pages.Product.ReadModel
+@using Microsoft.AspNetCore.Components.Web
 
 @{
     ViewData["Title"] = "Restaurant";
@@ -24,7 +25,8 @@
 
 <div class="card-columns">
 
-    @{
+    @{ 
+
         var restaurantList = RestaurantService.GetAllData();
         {
 
@@ -37,52 +39,53 @@
 
 
 
-            <div class="card">
-                <div class="card-img" style="background-image: url('@product.Image');">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">@product.Title</h5>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                            <button onclick="(e => SelectProduct(product.Id))"
-                                    data-toggle="modal" data-target="#productModal" class="btn btn-primary">
-                                More Info
-                            </button>
-                        </small>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('@product.Image');">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Title</h5>
+                        <div class="card-footer">
+                            <small class="text-muted">
+                                <button onclick="(e => SelectProduct(product.Id))"
+                                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                                    More Info
+                                </button>
+
+                            </small>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="productTitle">Title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="card">
-                                <div class="card-img" style="background-image: url('selectedProduct.Image');">
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">Description</p>
+                <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="productTitle">@product.Title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card">
+                                    <div class="card-img" style="background-image: url('@product.Image');">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">@product.Description</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
+                            <div class="modal-footer">
 
-                            <span class="fa fa-star checked" onclick="(e => SubmitRating(currentStar))"></span>
+                                <span class="fa fa-star checked" onclick="(e => SubmitRating(currentStar))"></span>
 
-                            <span class="fa fa-star" onclick="(e => SubmitRating(currentStar))"></span>
+                                <span class="fa fa-star" onclick="(e => SubmitRating(currentStar))"></span>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                
-                }
+
             }
         }
+    }
 </div>
