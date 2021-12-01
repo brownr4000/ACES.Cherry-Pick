@@ -7,7 +7,7 @@ namespace UnitTests.Models
     /// <summary>
     /// The ProductModelTests class defines unit tests to cover the ProductModel class
     /// </summary>
-    class ProducttModelTests
+    class ProductModelTests
     {
         #region TestSetup
         // Constant stings to hold values for determining unit test
