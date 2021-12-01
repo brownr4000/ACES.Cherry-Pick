@@ -109,6 +109,7 @@ namespace ContosoCrafts.WebSite.Services
         {
             // Get the current set, and append the new record to it
             var dataSet = GetAllData();
+            
             //check validation for duplicate records
             try
             {
@@ -124,7 +125,6 @@ namespace ContosoCrafts.WebSite.Services
             }
 
             return null;
-
         }
 
 
@@ -138,6 +138,7 @@ namespace ContosoCrafts.WebSite.Services
         {
             var products = GetAllData();
             var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
+            
             if (productData == null)
             {
                 return null;
