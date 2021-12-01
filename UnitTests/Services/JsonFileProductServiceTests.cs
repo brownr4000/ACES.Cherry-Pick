@@ -109,49 +109,23 @@ namespace UnitTests.Services
         }
 
         /// <summary>
-        /// Check to see if the rating exist, if there are none, then create the array
-        /// </summary>
-        [Test]
-        public void AddRating_No_Existing_Ratings_Should_Return_True()
-        {
-            // Arrange
-            var data = new ProductModel()
-            {
-                Id = System.Guid.NewGuid().ToString(),
-                Title = "Test Title",
-                Description = "Test Description",
-                Url = "http://www.asdfghii.com",
-                Image = "",
-            };
-
-            var newProduct = TestHelper.ProductService.CreateData(data);
-
-            // Act
-            var newRating = TestHelper.ProductService.AddRating(newProduct.Id, 2);
-            var dataNewList = TestHelper.ProductService.GetAllData().ToList();
-            int newRatingLength = 0;
-            foreach (var p in dataNewList) {
-                if (p.Id == newProduct.Id) {
-                    newRatingLength = p.Ratings.Length;
-                    break;
-                }
-            }
-
-            // Assert
-            Assert.AreEqual(true, newRating);
-            Assert.AreEqual(1, newRatingLength);
-
-            //Clean up
-            TestHelper.ProductService.DeleteData(newProduct.Id);
-        }
-
-        /// <summary>
         /// Invalid ratings with Null in AddRating should set Ratings to not null
         /// </summary>
         [Test]
         public void AddRating_InValid_Ratings_Null_Should_Set_Ratings_Not_Null()
         {
             // Arrange
+            var pdata = new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Enter Title",
+                Description = "Enter Description",
+                Url = "http://www.sometestdomain1.com",
+                Image = "",
+            };
+
+            // First Create a new product with no rating
+            TestHelper.ProductService.CreateData(pdata);
 
             // Act
             // Get a data whose rating is null
@@ -163,6 +137,9 @@ namespace UnitTests.Services
 
             // Assert
             Assert.AreEqual(false, data.Ratings == null);
+
+            //Clean up
+            TestHelper.ProductService.DeleteData(pdata.Id);
         }
 
         /// <summary>
