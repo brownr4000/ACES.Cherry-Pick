@@ -143,3 +143,7 @@ ul {
     background: -moz-linear-gradient(110deg, #808080 60%, #f08080 60%);
     background: linear-gradient(110deg, #808080 60%, #f08080 60%);
 }
+/*Formatting*/
+.format-logo {
+    color: #F08080;
+}
