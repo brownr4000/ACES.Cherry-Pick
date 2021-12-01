@@ -38,5 +38,7 @@ namespace ContosoCrafts.WebSite.Models
         // Override ToString() method for class
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
 
+        public int ProductType { get; set; }
+
     }
 }
