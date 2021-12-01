@@ -34,7 +34,7 @@ namespace UnitTests.Models
         {
             // Arrange
             // Creating a ProductModel with test values
-            ProductModel thingModel = new ProductModel()
+            ProductModel thingModel = new()
             {
                 Id = TEST_WORDS,
                 Title = TEST_WORDS,
