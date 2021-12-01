@@ -101,6 +101,30 @@ namespace UnitTests.Pages.Product.Create
             // Assert
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
         }
+
+        /// <summary>
+        /// The OnPost_Duplicate_Should_Show_Error_Message tests the OnPost method validation for duplicate product creation
+        /// </summary>
+        [Test]
+        public void OnPost_Duplicate_Should_Show_Error_Message()
+        {
+            // Arrange
+            pageModel.OnGet();
+            var data = pageModel.Product;
+
+            pageModel.Product.Url = "httP://www.qwertyu.com";
+
+            // Act
+            pageModel.OnPost();
+            //Attempt to create duplicate entry
+            pageModel.OnPost();
+            
+            // Assert
+            Assert.AreEqual(1, pageModel.ModelState.ErrorCount);
+
+            //Clean up
+            TestHelper.ProductService.DeleteData(data.Id);
+        }
         #endregion OnPost
     }
 }
