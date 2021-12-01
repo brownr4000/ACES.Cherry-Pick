@@ -109,43 +109,6 @@ namespace UnitTests.Services
         }
 
         /// <summary>
-        /// Check to see if the rating exist, if there are none, then create the array
-        /// </summary>
-        [Test]
-        public void AddRating_No_Existing_Ratings_Should_Return_True()
-        {
-            // Arrange
-            var data = new ProductModel()
-            {
-                Id = System.Guid.NewGuid().ToString(),
-                Title = "Test Title",
-                Description = "Test Description",
-                Url = "http://www.asdfghii.com",
-                Image = "",
-            };
-
-            var newProduct = TestHelper.ProductService.CreateData(data);
-
-            // Act
-            var newRating = TestHelper.ProductService.AddRating(newProduct.Id, 2);
-            var dataNewList = TestHelper.ProductService.GetAllData().ToList();
-            int newRatingLength = 0;
-            foreach (var p in dataNewList) {
-                if (p.Id == newProduct.Id) {
-                    newRatingLength = p.Ratings.Length;
-                    break;
-                }
-            }
-
-            // Assert
-            Assert.AreEqual(true, newRating);
-            Assert.AreEqual(1, newRatingLength);
-
-            //Clean up
-            TestHelper.ProductService.DeleteData(newProduct.Id);
-        }
-
-        /// <summary>
         /// Invalid ratings with Null in AddRating should set Ratings to not null
         /// </summary>
         [Test]
