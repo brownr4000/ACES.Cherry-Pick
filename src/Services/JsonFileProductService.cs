@@ -109,11 +109,22 @@ namespace ContosoCrafts.WebSite.Services
         {
             // Get the current set, and append the new record to it
             var dataSet = GetAllData();
-            dataSet = dataSet.Append(data);
+            //check validation for duplicate records
+            try
+            {
+                var oldProduct = dataSet.First(m => m.Url.Contains(data.Url));
+            }
+            catch (System.InvalidOperationException e)
+            {
+                dataSet = dataSet.Append(data);
 
-            SaveData(dataSet);
+                SaveData(dataSet);
 
-            return data;
+                return data;
+            }
+
+            return null;
+
         }
 
 

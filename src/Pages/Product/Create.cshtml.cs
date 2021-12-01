@@ -68,7 +68,13 @@ namespace ContosoCrafts.WebSite.Pages.Product
                 return Page();
             }
 
-            ProductService.CreateData(Product);
+            var newProduct = ProductService.CreateData(Product);
+            //If the existing entry present in the product, It will give an error message to enter a new entry 
+            if(newProduct==null)
+            {
+                ModelState.AddModelError(string.Empty, "Entry already exists. Please enter an unique entry.");
+                return Page();
+            }
             // Redirect the webpage to the Index page populated with the data so the user can fill in the fields
             return RedirectToPage("./Index");
 
