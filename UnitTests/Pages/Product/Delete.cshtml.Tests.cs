@@ -76,7 +76,7 @@ namespace UnitTests.Pages.Product.Delete
                 Id = System.Guid.NewGuid().ToString(),
                 Title = "Enter Title",
                 Description = "Enter Description",
-                Url = "Enter URL",
+                Url = "http://www.sometestdomain.com",
                 Image = "",
             };
 
@@ -90,7 +90,7 @@ namespace UnitTests.Pages.Product.Delete
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(true, result.PageName.Contains("/Product/Index"));
+            Assert.AreEqual(true, result.PageName.Contains("/Index"));
 
             // Confirm the item is deleted
             Assert.AreEqual(null, TestHelper.ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
