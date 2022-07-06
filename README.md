@@ -1,15 +1,11 @@
-# ACES
+# ACES - Cherry-Pick Restaurant Reviews & Recommendations
 
-## Tutorial
+ACES (Team 09) Project Repository for CPSC 5110 21FQ Fundamentals of Software Engineering
 
-- [ASP.NET Tutorial](https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/intro)
+This is a website built off the [ASP.NET Tutorial](https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/intro). The purpose of this project is to demonstrate an understanding of Agile Methodologies,  related principles, and how they apply to a 4-person team developing a software project.
 
-## Gists
+The ACES Team chose to make a restaurtant recommendation website for the Seattle area. The idea was for users to be able to find new restaurants based on cuisine type and user ratings
 
-- [Gist](https://gist.github.com/bradygaster/3d1fcf43d1d1e73ea5d6c1b5aab40130) referenced in the videos
+[Cherry-Pick](https://5110aces.azurewebsites.net/)
 
-## YouTube Playlist
-
-- [ASP.NET Core 101](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oW8nviYduHq7bmKode-p8Wy)
-
-13 part series
+---
